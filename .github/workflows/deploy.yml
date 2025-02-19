@@ -7,10 +7,10 @@ on:
 
 # Define environment variables for easier configuration
 env:
-    SITE_DIR: ${{ vars.SITE_DIR || 'memex.scriptoshi.com' }}
-    REPO_NAME: ${{ vars.REPO_NAME || 'memex' }}
-    GIT_REMOTE: ${{ vars.GIT_REMOTE || 'github-memex:scriptoshi/memex.git' }}
-    ENV_SOURCE: ${{ vars.ENV_SOURCE || '/var/www/envs/.memex' }}
+    SITE_DIR: ${{ vars.SITE_DIR || 'pumpfans.io' }}
+    REPO_NAME: ${{ vars.REPO_NAME || 'pumpfans' }}
+    GIT_REMOTE: ${{ vars.GIT_REMOTE || 'github-memex:scriptoshi/pumpfans.git' }}
+    ENV_SOURCE: ${{ vars.ENV_SOURCE || '/var/www/envs/.pumpfans' }}
 
 jobs:
     deploy:
