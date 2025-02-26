@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Enums\TradeType;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Trade extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, HasFactory;
 
     /**
      * The database table used by the model.
@@ -48,6 +49,8 @@ class Trade extends Model
         'address',
         'qty',
         'amount',
+        'price',
+        'usd_price',
         'usd',
         'type'
     ];

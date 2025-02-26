@@ -22,11 +22,9 @@ use Gate;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rules\Enum;
 use Inertia\Inertia;
 
-use function Clue\StreamFilter\fun;
 
 class LaunchpadsController extends Controller
 {
@@ -37,11 +35,115 @@ class LaunchpadsController extends Controller
     public function index(Request $request, $type = 'trending')
     {
         $keyword = $request->get('search');
+        $sort = $request->get('sort');
+        $dir = $request->get('dir');
         $perPage = 25;
-        $query  = Launchpad::query()
+        $query = Launchpad::query()
             ->with(['factory'])
             ->withSum(['trades as volume24h' => fn($q) => $q->where('created_at', '>=', now()->subDays(1))], 'usd')
-            ->withCount(['trades']);
+            ->withCount(['trades'])
+            ->withCount(['trades as makers' => function ($query) {
+                $query->select(DB::raw('count(distinct address)'));
+            }])
+            // Latest price remains unchanged since we want the most recent
+            ->addSelect([
+                'latest_price' => ModelsTrade::select(DB::raw('price'))
+                    ->whereColumn('launchpad_id', 'launchpads.id')
+                    ->latest()
+                    ->take(1)
+            ])
+            // 5m price change
+            ->addSelect([
+                'price_5m' => ModelsTrade::select(DB::raw(
+                    '
+            COALESCE(
+                (
+                    (SELECT price FROM trades t2 
+                    WHERE t2.launchpad_id = launchpads.id 
+                    AND t2.created_at > NOW() - INTERVAL 5 MINUTE
+                    ORDER BY created_at DESC LIMIT 1)
+                    /
+                    NULLIF((SELECT price FROM trades t3 
+                    WHERE t3.launchpad_id = launchpads.id 
+                    AND t3.created_at <= NOW() - INTERVAL 5 MINUTE
+                    ORDER BY created_at DESC LIMIT 1), 0)
+                    - 1
+                ) * 100,
+                0
+            )'
+                ))
+                    ->whereColumn('launchpad_id', 'launchpads.id')
+                    ->limit(1)
+            ])
+            // 1h price change
+            ->addSelect([
+                'price_1h' => ModelsTrade::select(DB::raw(
+                    '
+            COALESCE(
+                (
+                    (SELECT price FROM trades t2 
+                    WHERE t2.launchpad_id = launchpads.id 
+                    AND t2.created_at > NOW() - INTERVAL 1 HOUR
+                    ORDER BY created_at DESC LIMIT 1)
+                    /
+                    NULLIF((SELECT price FROM trades t3 
+                    WHERE t3.launchpad_id = launchpads.id 
+                    AND t3.created_at <= NOW() - INTERVAL 1 HOUR
+                    ORDER BY created_at DESC LIMIT 1), 0)
+                    - 1
+                ) * 100,
+                0
+            )'
+                ))
+                    ->whereColumn('launchpad_id', 'launchpads.id')
+                    ->limit(1)
+            ])
+            // 6h price change
+            ->addSelect([
+                'price_6h' => ModelsTrade::select(DB::raw(
+                    '
+            COALESCE(
+                (
+                    (SELECT price FROM trades t2 
+                    WHERE t2.launchpad_id = launchpads.id 
+                    AND t2.created_at > NOW() - INTERVAL 6 HOUR
+                    ORDER BY created_at DESC LIMIT 1)
+                    /
+                    NULLIF((SELECT price FROM trades t3 
+                    WHERE t3.launchpad_id = launchpads.id 
+                    AND t3.created_at <= NOW() - INTERVAL 6 HOUR
+                    ORDER BY created_at DESC LIMIT 1), 0)
+                    - 1
+                ) * 100,
+                0
+            )'
+                ))
+                    ->whereColumn('launchpad_id', 'launchpads.id')
+                    ->limit(1)
+            ])
+            // 24h price change
+            ->addSelect([
+                'price_24h' => ModelsTrade::select(DB::raw(
+                    '
+            COALESCE(
+                (
+                    (SELECT price FROM trades t2 
+                    WHERE t2.launchpad_id = launchpads.id 
+                    AND t2.created_at > NOW() - INTERVAL 24 HOUR
+                    ORDER BY created_at DESC LIMIT 1)
+                    /
+                    NULLIF((SELECT price FROM trades t3 
+                    WHERE t3.launchpad_id = launchpads.id 
+                    AND t3.created_at <= NOW() - INTERVAL 24 HOUR
+                    ORDER BY created_at DESC LIMIT 1), 0)
+                    - 1
+                ) * 100,
+                0
+            )'
+                ))
+                    ->whereColumn('launchpad_id', 'launchpads.id')
+                    ->limit(1)
+            ]);
         if (!empty($keyword)) {
             $query->where('contract', 'LIKE', "%$keyword%")
                 ->orWhere('token', 'LIKE', "%$keyword%")
@@ -59,6 +161,53 @@ class LaunchpadsController extends Controller
             'top' => $query->where('featured', true),
             default => null,
         };
+        if ($sort && $dir) {
+            $direction = strtolower($dir) === 'desc' ? 'desc' : 'asc';
+
+            switch ($sort) {
+                case 'symbol':
+                case 'name':
+                    $query->orderBy($sort, $direction);
+                    break;
+
+                case 'percentage':
+                    // Order by latest price percentage change
+                    $query->orderBy('latest_price', $direction);
+                    break;
+
+                case 'age':
+                    $query->orderBy('created_at', $direction);
+                    break;
+
+                case 'trades_count':
+                    $query->orderBy('trades_count', $direction);
+                    break;
+
+                case 'volume24h':
+                    $query->orderBy('volume24h', $direction);
+                    break;
+
+                case 'makers':
+                    $query->orderBy('makers', $direction);
+                    break;
+
+                case 't5m':
+                    $query->orderBy('price_5m', $direction);
+                    break;
+
+                case 't1h':
+                    $query->orderBy('price_1h', $direction);
+                    break;
+
+                case 't6h':
+                    $query->orderBy('price_6h', $direction);
+                    break;
+
+                case 't24h':
+                    $query->orderBy('price_24h', $direction);
+                    break;
+            }
+        }
         $launchpadsItems = $query->paginate($perPage);
         return Inertia::render('Welcome', [
             'launchpads' => LaunchpadResource::collection($launchpadsItems),
@@ -90,13 +239,12 @@ class LaunchpadsController extends Controller
                         'amount' => $trade->amount,
                         'address' => $trade->address,
                         'type' => $trade->type,
-                        'price' => bcdiv($trade->amount, $trade->qty, 18),
-                        'usd_price' => bcdiv($trade->usd, $trade->qty, 8),
+                        'price' => $trade->price,
+                        'usd_price' => $trade->usd_price,
                         'created_at' => $trade->created_at,
                         'date' => now()->gt($trade->created_at->addDays(7))
                             ? $trade->created_at->toDateTimeString()
                             : $trade->created_at->diffForHumans(),
-                        'price' => bcdiv($trade->amount, $trade->qty, 18),
                         //launchpad
                         'contract' => $trade->launchpad->contract,
                         'token' => $trade->launchpad->token,
@@ -178,6 +326,7 @@ class LaunchpadsController extends Controller
             'pool' => ['string', 'required'],
         ]);
         $launchpad->pool = $request->pool;
+        $launchpad->status = LaunchpadStatus::FINALIZED;
         $launchpad->save();
         return back();
     }
@@ -191,13 +340,11 @@ class LaunchpadsController extends Controller
     {
 
         return Inertia::render('Launchpads/Show', [
-
             'launchpad' => function () use ($launchpad) {
                 $launchpad->load(['factory', 'user']);
                 $launchpad->loadCount(['holders']);
                 return new LaunchpadResource($launchpad);
             },
-
             'rate' => function () use ($launchpad) {
                 return Rate::query()->where('chainId', $launchpad->chainId)->first();
             },
@@ -309,9 +456,7 @@ class LaunchpadsController extends Controller
             $first = $trades->first();
             $last = $trades->last();
             if ($trades->count() >= 2) {
-                $firstPrice = bcdiv("$first->usd", "$first->qty", 18);
-                $lastPrice = bcdiv("$last->usd", "$last->qty", 18);
-                $priceChange = bcdiv(bcsub($lastPrice, $firstPrice, 18), $firstPrice, 18) * 100;
+                $priceChange = bcdiv(bcsub($last->price, $first->price, 18), $first->price, 18) * 100;
             } else {
                 $priceChange = 0;
             }

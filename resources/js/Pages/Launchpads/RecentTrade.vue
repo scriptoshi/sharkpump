@@ -1,6 +1,5 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
-import { ArrowRightToLine } from "lucide-vue-next";
 
 import ChainSymbol from "@/Components/ChainSymbol.vue";
 import { useBillions } from "@/hooks";
@@ -12,56 +11,67 @@ defineProps({
 </script>
 <template>
     <Link
-        class="px-2 text-white"
+        class="block w-full"
         v-if="trade?.contract"
         :href="route('launchpads.show', { launchpad: trade?.contract })"
     >
-    <div class="bg-gray-800 border border-gray-700 hover:bg-gray-750 p-4 rounded">
-        <div class="flex items-center justify-between rounded transition-colors duration-200">
-            <span
-                v-if="trade.type == 'sell'"
-                class="text-red-300 rounded text-xs uppercase border px-3 py-1 border-red-500 bg-red-500/10 font-bold"
-            >
-                # SELL
-            </span>
-            <span
-                v-if="trade.type == 'buy'"
-                class="text-emerald-300 rounded text-xs uppercase border px-3 py-1 border-emerald-500 bg-emerald-500/10 font-bold"
-            >
-                # BUY
-            </span>
-            <span
-                v-if="trade.type == 'prebond'"
-                class="text-gray-300 rounded text-xs uppercase border px-3 py-1 border-gray-500 bg-gray-500/10 font-bold"
-            >
-                BOND
-            </span>
-            <div class="flex items-center gap-2">
-                <img
-                    :alt="trade.name"
-                    class="block w-6 h-6 rounded-full"
-                    :src="trade.logo"
-                    loading="lazy"
-                />
+    <div class="backdrop-blur-lg bg-gray-900/40 border border-gray-700/30 hover:bg-gray-800/50 p-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5">
+        <div class="flex flex-col gap-2">
+            <!-- Top Section with Type Badge and Amount -->
+            <div class="flex items-center justify-between">
                 <span
-                    class="box-border f text-sm font-semibold break-words max-w-32 overflow-hidden text-ellipsis whitespace-nowrap"
+                    v-if="trade.type == 'sell'"
+                    class="text-red-300 rounded-lg text-xs uppercase px-2.5 py-1 border border-red-500/20 bg-red-500/10 font-medium tracking-wider backdrop-blur-sm"
                 >
-                    {{ useBillions(trade.qty) }} {{ trade.symbol }}
+                    SELL
                 </span>
-                <ArrowRightToLine class="w-5 h-5 ml-2" />
-                <div class="flex items-center text-sm font-semibold text-[#f0b90b]">
-                    {{ parseFloat(trade.amount).toFixed(4) * 1 }}
-                    <ChainSymbol :chain-id="trade.chainId" />
-                </div>
-                <div class="flex items-center text-sm font-semibold text-[#f0b90b]">
-                    (~${{ useBillions(trade.usd) }})
+                <span
+                    v-if="trade.type == 'buy'"
+                    class="text-emerald-300 rounded-lg text-xs uppercase px-2.5 py-1 border border-emerald-500/20 bg-emerald-500/10 font-medium tracking-wider backdrop-blur-sm"
+                >
+                    BUY
+                </span>
+                <span
+                    v-if="trade.type == 'prebond'"
+                    class="text-primary rounded-lg text-xs uppercase px-2.5 py-1 border border-primary/20 bg-primary/10 font-medium tracking-wider backdrop-blur-sm"
+                >
+                    BOND
+                </span>
+                
+                <div class="text-xs px-2 py-0.5 text-gray-400 border rounded-full border-gray-600/30 backdrop-blur-sm">
+                    {{ trade.date }}
                 </div>
             </div>
-        </div>
-        <div class="flex mt-1 items-center justify-between">
-            <div>{{ shortenAddress(trade.address, 10) }}</div>
-            <div class="text-xs px-1.5 py-0.5 text-gray-400 border rounded-full border-gray-600">
-                {{ trade.date }}
+
+            <!-- Token Info and Address Section -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="relative group">
+                        <img
+                            :alt="trade.name"
+                            class="w-8 h-8 rounded-lg shadow-lg transition-transform group-hover:scale-105"
+                            :src="trade.logo"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-sm font-medium text-gray-300">
+                            {{ useBillions(trade.qty) }} {{ trade.symbol }}
+                        </span>
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="font-medium text-primary">
+                                {{ parseFloat(trade.amount).toFixed(4) * 1 }}
+                                <ChainSymbol :chain-id="trade.chainId" />
+                            </span>
+                            <span class="text-gray-400">
+                                (~${{ useBillions(trade.usd) }})
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-400 bg-gray-800/50 px-2 py-0.5 rounded-full backdrop-blur-sm border border-gray-700/30">
+                    {{ shortenAddress(trade.address, 10) }}
+                </div>
             </div>
         </div>
     </div>

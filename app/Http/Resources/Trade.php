@@ -21,8 +21,8 @@ class Trade extends JsonResource
             'address' => $this->address,
             'qty' => $this->qty,
             'amount' => $this->amount,
-            'price' => bcdiv($this->amount, $this->qty, 18),
-            'usd_price' => bcdiv($this->usd, $this->qty, 8),
+            'price' => $this->price,
+            'usd_price' => $this->usd_price,
             'usd' => $this->usd,
             'type' => $this->type,
             'date' => now()->gt($this->created_at->addDay())
