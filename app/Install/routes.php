@@ -5,6 +5,7 @@ use App\Install\Middleware\InstallMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(InstallController::class)
+    ->middleware(InstallMiddleware::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/requirements', 'requirements')->name('requirements');

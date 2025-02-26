@@ -21,6 +21,13 @@ class Uploads
         $fullpath = Storage::disk($disk)->path($path);
         $extension = $file->fileExtension ?? File::guessExtension($fullpath);
         $uploadedFile = 'uploads/' . File::hash($fullpath) . '.' . $extension;
+        
+        // Create directory if it doesn't exist
+        $destinationDirectory = dirname(Storage::disk('public')->path($uploadedFile));
+        if (!File::exists($destinationDirectory)) {
+            File::makeDirectory($destinationDirectory, 0755, true);
+        }
+        
         File::move($fullpath, Storage::disk('public')->path($uploadedFile));
         return $uploadedFile;
     }
