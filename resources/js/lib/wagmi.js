@@ -269,7 +269,9 @@ export const useWagmiAdapter = ({
         return {
             ...acc,
             [chainId]: fallback(transports, {
-                rank: true,
+                rank: {
+                    interval: 60000
+                },
                 retryCount: 2,
                 timeout: 10000
             })

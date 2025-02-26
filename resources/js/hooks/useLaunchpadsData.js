@@ -47,7 +47,7 @@ async function getLaunchpadDataByChainId(launchpads, rates, chainId, chains, rpc
         const client = createPublicClient({
             chain: chains.find(chain => chain.id === chainId),
             transport: fallback(transports, {
-                rank: true,
+                rank: false,
                 retryCount: 2,
                 timeout: 10000
             })
