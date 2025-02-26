@@ -37,10 +37,10 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
                             </li>
                             <li>
                                 <Link
-                                    href="/mine"
+                                    href="/fees"
                                     class="text-sm font-semibold hover:text-primary transition-colors"
                                 >
-                                {{ $t("My Memes") }}
+                                {{ $t("Fees") }}
                                 </Link>
                             </li>
                             <li class="hidden">
