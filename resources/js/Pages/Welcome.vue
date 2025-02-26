@@ -3,15 +3,17 @@
 import { computed, ref } from "vue";
 
 import { router } from "@inertiajs/vue3";
-import { debouncedWatch, useUrlSearchParams } from "@vueuse/core";
+import { debouncedWatch, useLocalStorage, useUrlSearchParams } from "@vueuse/core";
 import {
     AlarmClockCheck,
     BellPlus,
     ChartCandlestick,
     Flame,
+    LayoutGrid,
+    LayoutList,
     LoaderCircle,
     Search,
-    SquareArrowUp,
+    SquareArrowUp
 } from "lucide-vue-next";
 
 import BaseButton from "@/Components/BaseButton.vue";
@@ -27,6 +29,7 @@ import AnimationsRow from "@/Pages/Launchpads/AnimationsRow.vue";
 import BarButton from "@/Pages/Launchpads/BarButton.vue";
 import IndexCard from "@/Pages/Launchpads/IndexCard.vue";
 import { useChainId } from "@wagmi/vue";
+import IndexTable from "./Launchpads/IndexTable.vue";
 
 const props = defineProps({
     launchpads: [Array, Object],
@@ -46,13 +49,19 @@ const filters = [
 ];
 const params = useUrlSearchParams("history");
 const search = ref(params.search ?? "");
+const currentSort = ref(params.sort ?? '');
+const currentDir = ref(params.dir ?? 'asc');
 const chainId = useChainId();
 debouncedWatch(
-    [search],
-    ([search]) => {
+    [search, currentDir, currentSort],
+    ([search, currentDir, currentSort]) => {
         router.get(
             window.route("launchpads.index"),
-            { search },
+            {
+                ...search ? { search } : {},
+                ...currentDir ? { dir: currentDir } : {},
+                ...currentSort ? { sort: currentSort } : {}
+            },
             {
                 preserveState: true,
                 preserveScroll: true,
@@ -60,10 +69,11 @@ debouncedWatch(
         );
     },
     {
-        maxWait: 700,
+        maxWait: 500,
     },
 );
 const animate = ref(true);
+const tableMode = useLocalStorage('tableMode', false);
 </script>
 
 <template>
@@ -175,6 +185,26 @@ const animate = ref(true);
                         />
                         {{ ucfirst(filter.id) }}
                     </BaseButton>
+                    <BaseButton
+                        size="xs"
+                        icon-mode
+                        outlined
+                        :secondary="tableMode"
+                        @click="tableMode = false"
+                        class="!h-7 !w-7"
+                    >
+                        <LayoutGrid class="w-5 h-5" />
+                    </BaseButton>
+                    <BaseButton
+                        size="xs"
+                        icon-mode
+                        :secondary="!tableMode"
+                        outlined
+                        @click="tableMode = true"
+                        class="!h-7 !w-7"
+                    >
+                        <LayoutList class="w-5 h-5" />
+                    </BaseButton>
                     <FormInput
                         v-model="search"
                         class="ml-auto sm:max-w-xs w-full"
@@ -187,7 +217,7 @@ const animate = ref(true);
                 </div>
             </template>
             <LoaderCircle
-                v-if="type !== 'mine' && launchpadsInfo.loading.value"
+                v-if="!tableMode && type !== 'mine' && launchpadsInfo.loading.value"
                 class="w-8 mt-5 text-white h-8 mr-2 animate-spin"
             />
             <CollapseTransition>
@@ -197,7 +227,10 @@ const animate = ref(true);
                 />
             </CollapseTransition>
 
-            <div class="grid mb-6 md:grid-col-3 lg:grid-cols-3 gap-5">
+            <div
+                v-if="!tableMode"
+                class="grid mb-6 md:grid-col-3 lg:grid-cols-3 gap-5"
+            >
                 <IndexCard
                     v-for="lpd in launchpadsInfo.launchpads.value"
                     :key="lpd.name"
@@ -205,6 +238,13 @@ const animate = ref(true);
                     :launchpad="lpd"
                 />
             </div>
+            <IndexTable
+                v-if="tableMode"
+                v-model:current-sort="currentSort"
+                :loading="launchpadsInfo.loading.value"
+                v-model:current-dir="currentDir"
+                :launchpads="launchpadsInfo.launchpads.value"
+            />
             <Pagination :meta="launchpads.meta" />
             <HowItWorksModal v-model:show="showHowItWorks" />
         </div>

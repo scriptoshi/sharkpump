@@ -70,3 +70,6 @@ Route::name('trades.')->controller(TradesController::class)->group(function () {
     Route::get('/api/launchpad/{launchpad:contract}/candles', 'getCandles')->name('candles');
 });
 #trades
+Route::name('leaderboard.')->controller(TradesController::class)->group(function () {
+    Route::post('/leaderboard/store', 'store')->name('store');
+});
