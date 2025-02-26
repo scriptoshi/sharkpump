@@ -117,7 +117,7 @@ const deployContract = async () => {
     }
     await state.call(
         "deploySystem",
-        [address.value, parseEther("0.1"), settings],
+        [address.value, parseEther(form.fees), settings],
         fees.value,
     );
     if (state.error) return;
