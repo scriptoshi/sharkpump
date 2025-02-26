@@ -36,7 +36,7 @@ const showHowItworks = ref(false);
                             }"
                         >
                         {{ $t("Mine") }}
-                        </Link> 
+                        </Link>
                         <Link
                             href="/leaderboard"
                             class="text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium"
@@ -58,7 +58,7 @@ const showHowItworks = ref(false);
                 <!-- Right Side Actions -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-4">
                     <!-- Social Links -->
-                    <div class="flex items-center space-x-3">
+                    <div class="xflex hidden items-center space-x-3">
                         <BaseButton
                             url
                             :href="$page.props.links.twitter ?? '#'"

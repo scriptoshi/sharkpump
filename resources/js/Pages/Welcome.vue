@@ -229,7 +229,7 @@ const tableMode = useLocalStorage('tableMode', false);
 
             <div
                 v-if="!tableMode"
-                class="grid mb-6 md:grid-col-3 lg:grid-cols-3 gap-5"
+                class="grid my-6 md:grid-col-3 lg:grid-cols-3 gap-5"
             >
                 <IndexCard
                     v-for="lpd in launchpadsInfo.launchpads.value"
