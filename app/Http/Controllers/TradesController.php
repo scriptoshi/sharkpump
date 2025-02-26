@@ -206,19 +206,4 @@ class TradesController extends Controller
         $leads = $query->paginate($request->input('per_page', 50));
         return Inertia::render('Trades/Leaderboard', compact('leads', 'launchpad', 'type', 'period'));
     }
-
-
-
-
-    public function project_leaderboard(Request $request, $type = null)
-    {
-        ### group and order trades by $trade->address ###
-        ## these are types below.
-        // buyers  , Order by sum amount usd  purchased  \App\Enums\TradeType::SELL
-        // sellers ,Order by sum amount usd  sold  \App\Enums\TradeType::SELL
-        // prebond ,Order by sum amount usd  purchased  \App\Enums\TradeType::PREBOND
-        // profits , Order by sum usd  buys minus sum usd sells
-        // trades , total amount of trades executed by the address
-        // Launchpads, Most launchpads participated in by the address
-    }
 }

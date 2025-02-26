@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\Trade;
-use App\Observers\TradeObserver;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +24,5 @@ class AppServiceProvider extends ServiceProvider
     {
         JsonResource::withoutWrapping();
         Vite::prefetch(concurrency: 3);
-        Trade::observe(TradeObserver::class);
     }
 }

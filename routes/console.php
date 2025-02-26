@@ -2,7 +2,6 @@
 
 use App\Console\Commands\UpdatePoolStats;
 use App\Console\Commands\UpdateTokenHolders;
-use App\Console\Commands\UpdateTradeCandles;
 use App\Services\Rate;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schedule;
@@ -10,8 +9,6 @@ use Illuminate\Support\Facades\Schedule;
 //schedule
 Schedule::command(UpdatePoolStats::class)->everyTenMinutes();
 Schedule::command(UpdateTokenHolders::class)->everyTenMinutes();
-Schedule::command(UpdateTradeCandles::class, ['--days=1'])->hourly();
-Schedule::command(UpdateTradeCandles::class, ['--days=30'])->daily();
 //commands
 Artisan::command('rates:update', function () {
     Rate::update();

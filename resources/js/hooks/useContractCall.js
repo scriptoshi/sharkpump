@@ -3,17 +3,65 @@
 import { computed, reactive, ref, watch } from "vue";
 
 
+import { usePage } from "@inertiajs/vue3";
 import { get } from "@vueuse/core";
 import { getPublicClient, getWalletClient } from '@wagmi/core';
-import { useAccount, useChainId, useConfig } from "@wagmi/vue";
-import { BaseError, ContractFunctionRevertedError, erc20Abi, formatEther, zeroAddress } from "viem";
+import { useAccount, useChainId, useChains, useConfig } from "@wagmi/vue";
+import { BaseError, ContractFunctionRevertedError, createPublicClient, erc20Abi, fallback, formatEther, http, zeroAddress } from "viem";
 import { useI18n } from "vue-i18n";
 
 import { isAddress, useTxHash } from "@/hooks/explorers.js";
 import positionAbi from "@/hooks/positionManager.json";
 import { camelToTitle } from "@/hooks/useCamelToTitle.js";
+import {
+    ankrTransports,
+    blastapiTransports,
+    infuraTransports
+} from '@/lib/wagmi.js';
 
+// Get transport URLs for a specific chain
+function getTransportUrls(chainId, rpcConfig) {
+    const { ankrKey, infuraKey, blastKey } = rpcConfig;
+    const urls = [];
 
+    if (ankrKey && ankrTransports(ankrKey)[chainId]) {
+        urls.push(ankrTransports(ankrKey)[chainId]);
+    }
+    if (infuraKey && infuraTransports(infuraKey)[chainId]) {
+        urls.push(infuraTransports(infuraKey)[chainId]);
+    }
+    if (blastKey && blastapiTransports(blastKey)[chainId]) {
+        urls.push(blastapiTransports(blastKey)[chainId]);
+    }
+
+    return [...new Set(urls)];
+}
+
+function getClient(chainId) {
+    const chains = useChains();
+    const rpcConfig = {
+        ankrKey: usePage().props.ankr,
+        infuraKey: usePage().props.infura,
+        blastKey: usePage().props.blast,
+    };
+    const transportUrls = getTransportUrls(chainId, rpcConfig);
+
+    if (transportUrls.length === 0) {
+        throw new Error(`No transport URLs configured for chain ${chainId}`);
+    }
+
+    // Create transport array with fallback options
+    const transports = transportUrls.map(url => http(url));
+    // Create a client specific to this chain using fallback transport
+    return createPublicClient({
+        chain: chains.value.find(chain => chain.id === chainId),
+        transport: fallback(transports, {
+            rank: false,
+            retryCount: 2,
+            timeout: 10000
+        })
+    });
+}
 
 export const useReactiveContractCall = (
     abi,
@@ -134,7 +182,8 @@ export const useContractFees = (abi, address, functionName = 'fees') => {
     );
     return {
         fees,
-        feesFormatted
+        feesFormatted,
+        loadFees
     };
 };
 
@@ -222,7 +271,7 @@ export const useLaunchpadInfo = (launchpad) => {
         return phases[settings.currentPhase] ?? 'Prebonding';
     });
     settings.isOwner = computed(() => `${settings.owner}`.toLowerCase() === `${address.value}`.toLowerCase());
-    const publicClient = getPublicClient(useConfig());
+    const publicClient = getClient(parseInt(launchpad.chainId));
     // balance
     settings.updateBalance = async () => {
         const response = await publicClient.readContract({
@@ -351,7 +400,7 @@ export const useLaunchpadInfo = (launchpad) => {
 
 
 export const useLockInfo = (launchpad) => {
-    const publicClient = getPublicClient(useConfig());
+    const publicClient = getClient(parseInt(launchpad.chainId));
     const { address } = useAccount();
     const info = reactive({
         positionManager: zeroAddress,
