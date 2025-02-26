@@ -52,17 +52,20 @@ class HandleInertiaRequests extends Middleware
                     'success' => $request->session()->get('success'),
                 ]);
             }),
-            'links' => [...config('app.links', []), ...Arr::only(
-                $setting->toArray(),
-                [
-                    'twitter',
-                    'youtube',
-                    'tgGroup',
-                    'tgChannel',
-                    'discord',
-                    'documentation',
-                ]
-            )],
+            'links' => [
+                ...Arr::only(
+                    $setting->toArray(),
+                    [
+                        'twitter',
+                        'youtube',
+                        'tgGroup',
+                        'tgChannel',
+                        'discord',
+                        'documentation',
+                    ]
+                ),
+                ...config('app.links', []),
+            ],
             'appName' => $setting->name ?? config('app.name'),
             'appLogo' => $setting->logo,
             'uploadsDisk' => fn() => config('filesystems.default'),
