@@ -24,6 +24,7 @@ const slippage = ref(false);
 const props = defineProps({
     launchpad: Object,
 });
+const emit = defineEmits(['tx']);
 const tradeType = ref("buy");
 const info = useLaunchpadInfo(props.launchpad);
 const state = useReactiveContractCall(
@@ -114,6 +115,7 @@ const saveTx = (txhash) => {
         preserveState: true,
         preserveScroll: true,
     });
+    emit('tx');
 };
 const updatePrebondLog = () => {
     const logs = parseEventLogs({

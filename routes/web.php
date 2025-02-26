@@ -17,6 +17,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/terms', fn() => Inertia::render('Terms'))->name('terms');
 Route::get('/privacy', fn() => Inertia::render('Privacy'))->name('privacy');
+Route::get('/fees', fn() => Inertia::render('Fees'))->name('fees');
 
 
 Route::controller(S3Controller::class)
