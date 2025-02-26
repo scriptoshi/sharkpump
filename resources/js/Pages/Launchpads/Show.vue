@@ -1,11 +1,14 @@
 <script setup>
 import { ref } from "vue";
 
-import { MessageSquare, TvMinimalPlay, UsersRound } from "lucide-vue-next";
+import { useAccount, useChainId } from "@wagmi/vue";
+import { ClipboardCopy, MessageSquare, TvMinimalPlay, UsersRound } from "lucide-vue-next";
 import { RiExchangeLine } from "oh-vue-icons/icons";
 
+import AddressLink from "@/Components/AddressLink.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import VueIcon from "@/Components/VueIcon.vue";
+import WeCopy from "@/Components/WeCopy.vue";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import BarButton from "@/Pages/Launchpads/BarButton.vue";
 import Chat from "@/Pages/Launchpads/Chat.vue";
@@ -32,6 +35,8 @@ const tabs = [
     { name: "Dev Stream", icon: TvMinimalPlay },
 ];
 const activeTab = ref("Chat");
+const chainId = useChainId();
+const { address } = useAccount();
 </script>
 <template>
     <AppLayout compact>
@@ -54,6 +59,33 @@ const activeTab = ref("Chat");
         </template>
         <div class="flex flex-col items-center md:items-start md:flex-row gap-8 mt-4 md:justify-center">
             <div class="flex flex-col gap-2 w-full px-4 md:px-0 md:w-2/3">
+                <div class="flex items-center gap-3">
+                    <img
+                        class="w-5 h-5 rounded-full"
+                        :src="launchpad.logo"
+                    />
+                    <h3 class="uppercase max-w-xs truncate">{{ launchpad.name }}</h3>
+                    <AddressLink
+                        :chainId="launchpad.chainId"
+                        :address="launchpad.token"
+                        :len="12"
+                        v-slot="{ etherScanLink, shortAddress }"
+                    >
+                        <a
+                            :href="etherScanLink"
+                            target="_blank"
+                            class="cursor-pointer text-gray-100 select-none font-semibold hover:text-primary"
+                        >
+                            {{ shortAddress }}
+                        </a>
+                    </AddressLink>
+                    <WeCopy
+                        after
+                        :text="launchpad.token"
+                    >
+                        <ClipboardCopy class="w-4 h-4 text-white" />
+                    </WeCopy>
+                </div>
                 <div class="h-4/8">
                     <TradingViewChart :launchpad="launchpad" />
                 </div>
@@ -107,16 +139,27 @@ const activeTab = ref("Chat");
                     />
                 </div>
             </div>
-            <div class="grid mb-12 gap-4 w-full px-4 h-fit md:w-fit md:mx-auto md:px-3">
-                <BuyCard :launchpad="launchpad" />
-                <LockCard
-                    v-if="launchpad.isOwner"
+            <div class="grid mb-12 gap-4 w-full px-4 h-fit md:w-1/3 md:mx-auto md:px-3">
+                <BuyCard
+                    v-if="chainId"
+                    :key="`trade-${chainId}-${launchpad.chaind}-${address}`"
                     :launchpad="launchpad"
                 />
+                <template v-if="launchpad.isOwner">
+
+                    <LockCard
+                        v-if="chainId"
+                        :key="`lock-${chainId}-${launchpad.chaind}-${address}`"
+                        :launchpad="launchpad"
+                    />
+                </template>
+
                 <Info
                     :rank="stats.rank"
                     :rate="rate"
+                    v-if="chainId"
                     :totalVolume="stats.totalVolume"
+                    :key="`info-${chainId}-${launchpad.chaind}-${address}`"
                     :totalLaunchpads="stats.totalLaunchpads"
                     :launchpad="launchpad"
                 />

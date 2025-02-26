@@ -1,10 +1,60 @@
 import { computed, reactive, watch } from 'vue';
 
-import { get } from '@vueuse/core';
-import { getPublicClient } from '@wagmi/core';
-import { useChainId, useConfig } from '@wagmi/vue';
-import { formatEther } from 'viem';
 
+import { usePage } from "@inertiajs/vue3";
+import { get } from "@vueuse/core";
+import { useChainId, useChains } from "@wagmi/vue";
+import { createPublicClient, fallback, formatEther, http } from "viem";
+
+import {
+    ankrTransports,
+    blastapiTransports,
+    infuraTransports
+} from '@/lib/wagmi.js';
+
+// Get transport URLs for a specific chain
+function getTransportUrls(chainId, rpcConfig) {
+    const { ankrKey, infuraKey, blastKey } = rpcConfig;
+    const urls = [];
+
+    if (ankrKey && ankrTransports(ankrKey)[chainId]) {
+        urls.push(ankrTransports(ankrKey)[chainId]);
+    }
+    if (infuraKey && infuraTransports(infuraKey)[chainId]) {
+        urls.push(infuraTransports(infuraKey)[chainId]);
+    }
+    if (blastKey && blastapiTransports(blastKey)[chainId]) {
+        urls.push(blastapiTransports(blastKey)[chainId]);
+    }
+
+    return [...new Set(urls)];
+}
+
+function getClient(chainId) {
+    const chains = useChains();
+    const rpcConfig = {
+        ankrKey: usePage().props.ankr,
+        infuraKey: usePage().props.infura,
+        blastKey: usePage().props.blast,
+    };
+    const transportUrls = getTransportUrls(chainId, rpcConfig);
+
+    if (transportUrls.length === 0) {
+        throw new Error(`No transport URLs configured for chain ${chainId}`);
+    }
+
+    // Create transport array with fallback options
+    const transports = transportUrls.map(url => http(url));
+    // Create a client specific to this chain using fallback transport
+    return createPublicClient({
+        chain: chains.value.find(chain => chain.id === chainId),
+        transport: fallback(transports, {
+            rank: false,
+            retryCount: 2,
+            timeout: 10000
+        })
+    });
+}
 // Uniswap V3 Pool ABI for price data
 const POOL_ABI = [
     {
@@ -53,7 +103,7 @@ const POOL_ABI = [
 ];
 
 export const usePriceInfo = (launchpad, usdRate) => {
-    const publicClient = getPublicClient(useConfig());
+    const publicClient = getClient(parseInt(launchpad.chainId));
     const chainId = useChainId();
     const info = reactive({
         // Price metrics
