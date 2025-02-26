@@ -4,6 +4,7 @@ import { ref } from "vue";
 import { useAccount, useChainId } from "@wagmi/vue";
 import { ClipboardCopy, MessageSquare, TvMinimalPlay, UsersRound } from "lucide-vue-next";
 import { RiExchangeLine } from "oh-vue-icons/icons";
+import { uid } from "uid";
 
 import AddressLink from "@/Components/AddressLink.vue";
 import BaseButton from "@/Components/BaseButton.vue";
@@ -37,6 +38,8 @@ const tabs = [
 const activeTab = ref("Chat");
 const chainId = useChainId();
 const { address } = useAccount();
+const random = ref(uid());
+const update = () => random.value = uid();
 </script>
 <template>
     <AppLayout compact>
@@ -142,6 +145,7 @@ const { address } = useAccount();
             <div class="grid mb-12 gap-4 w-full px-4 h-fit md:w-1/3 md:mx-auto md:px-3">
                 <BuyCard
                     v-if="chainId"
+                    @tx="update"
                     :key="`trade-${chainId}-${launchpad.chaind}-${address}`"
                     :launchpad="launchpad"
                 />
@@ -159,7 +163,7 @@ const { address } = useAccount();
                     :rate="rate"
                     v-if="chainId"
                     :totalVolume="stats.totalVolume"
-                    :key="`info-${chainId}-${launchpad.chaind}-${address}`"
+                    :key="`info-${chainId}-${launchpad.chaind}-${address}-${random}`"
                     :totalLaunchpads="stats.totalLaunchpads"
                     :launchpad="launchpad"
                 />

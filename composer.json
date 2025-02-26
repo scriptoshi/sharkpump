@@ -26,6 +26,7 @@
         "resend/resend-php": "^0.14.0",
         "simplito/elliptic-php": "^1.0",
         "sopamo/laravel-filepond": "^1.4",
+        "spatie/laravel-markdown": "^2.7",
         "symfony/http-client": "^7.2",
         "symfony/mailgun-mailer": "^7.1",
         "symfony/postmark-mailer": "^7.1",

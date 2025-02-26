@@ -35,7 +35,16 @@ const showHowItworks = ref(false);
                                 'text-primary': $page.props.type == 'mine',
                             }"
                         >
-                        {{ $t("My Memes") }}
+                        {{ $t("Mine") }}
+                        </Link> 
+                        <Link
+                            href="/leaderboard"
+                            class="text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium"
+                            :class="{
+                                'text-primary': route().current('trades.leaderboard'),
+                            }"
+                        >
+                        {{ $t("Leaderboard") }}
                         </Link>
                         <button
                             @click="showHowItworks = !showHowItworks"

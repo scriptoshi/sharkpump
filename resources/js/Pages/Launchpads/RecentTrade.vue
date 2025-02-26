@@ -15,29 +15,30 @@ defineProps({
         v-if="trade?.contract"
         :href="route('launchpads.show', { launchpad: trade?.contract })"
     >
-    <div class="backdrop-blur-lg bg-gray-900/40 border border-gray-700/30 hover:bg-gray-800/50 p-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5">
+    <div
+        class="backdrop-blur-lg bg-gray-900/40 border border-gray-700 hover:bg-gray-800/50 p-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5">
         <div class="flex flex-col gap-2">
             <!-- Top Section with Type Badge and Amount -->
             <div class="flex items-center justify-between">
                 <span
                     v-if="trade.type == 'sell'"
-                    class="text-red-300 rounded-lg text-xs uppercase px-2.5 py-1 border border-red-500/20 bg-red-500/10 font-medium tracking-wider backdrop-blur-sm"
+                    class="text-red-300 rounded-lg text-xs uppercase px-2.5 py-1 border border-red-500/40 bg-red-500/10 font-medium tracking-wider backdrop-blur-sm"
                 >
                     SELL
                 </span>
                 <span
                     v-if="trade.type == 'buy'"
-                    class="text-emerald-300 rounded-lg text-xs uppercase px-2.5 py-1 border border-emerald-500/20 bg-emerald-500/10 font-medium tracking-wider backdrop-blur-sm"
+                    class="text-emerald-300 rounded-lg text-xs uppercase px-2.5 py-1 border border-emerald-500/40 bg-emerald-500/10 font-medium tracking-wider backdrop-blur-sm"
                 >
                     BUY
                 </span>
                 <span
                     v-if="trade.type == 'prebond'"
-                    class="text-primary rounded-lg text-xs uppercase px-2.5 py-1 border border-primary/20 bg-primary/10 font-medium tracking-wider backdrop-blur-sm"
+                    class="text-primary rounded-lg text-xs uppercase px-2.5 py-1 border border-primary/40 bg-primary/10 font-medium tracking-wider backdrop-blur-sm"
                 >
                     BOND
                 </span>
-                
+
                 <div class="text-xs px-2 py-0.5 text-gray-400 border rounded-full border-gray-600/30 backdrop-blur-sm">
                     {{ trade.date }}
                 </div>
@@ -69,7 +70,8 @@ defineProps({
                         </div>
                     </div>
                 </div>
-                <div class="text-xs text-gray-400 bg-gray-800/50 px-2 py-0.5 rounded-full backdrop-blur-sm border border-gray-700/30">
+                <div
+                    class="text-xs text-gray-400 bg-gray-800/50 px-2 py-0.5 rounded-full backdrop-blur-sm border border-gray-700/30">
                     {{ shortenAddress(trade.address, 10) }}
                 </div>
             </div>

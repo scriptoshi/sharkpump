@@ -240,6 +240,7 @@ const tableMode = useLocalStorage('tableMode', false);
             </div>
             <IndexTable
                 v-if="tableMode"
+                class="mt-5"
                 v-model:current-sort="currentSort"
                 :loading="launchpadsInfo.loading.value"
                 v-model:current-dir="currentDir"

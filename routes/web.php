@@ -68,8 +68,6 @@ Route::name('msgs.')->controller(MsgsController::class)->group(function () {
 Route::name('trades.')->controller(TradesController::class)->group(function () {
     Route::post('/trades/store', 'store')->name('store');
     Route::get('/api/launchpad/{launchpad:contract}/candles', 'getCandles')->name('candles');
+    Route::get('/leaderboard', 'leaderboard')->name('leaderboard');
 });
 #trades
-Route::name('leaderboard.')->controller(TradesController::class)->group(function () {
-    Route::post('/leaderboard/store', 'store')->name('store');
-});
