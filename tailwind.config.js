@@ -1,3 +1,4 @@
+import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const svgToDataUri = require("mini-svg-data-uri");
@@ -38,8 +39,11 @@ export default {
             },
             colors: {
                 primary: {
-                    DEFAULT: '#ffbe1a',
-                    dark: '#e6aa17'  // ~10% darker for hover state
+                    ...colors.yellow,
+                    // DEFAULT: '#ffbe1a',
+                    // dark: '#e6aa17'  // ~10% darker for hover state
+                    DEFAULT: colors.yellow[400],
+                    dark: colors.yellow[600]  // ~10% darker for hover state
                 },
                 gray: {
                     '50': "#fafafa",

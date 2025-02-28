@@ -24,7 +24,7 @@ const showHowItworks = ref(false);
                         class="flex items-center"
                         href="/"
                     >
-                    <ApplicationLogo class="block h-5 w-auto font-semibold" />
+                    <ApplicationLogo class="block h-7 w-auto font-semibold" />
                     </Link>
                     <!-- Navigation Links - Desktop -->
                     <div class="hidden lg:flex lg:items-center lg:space-x-4">
