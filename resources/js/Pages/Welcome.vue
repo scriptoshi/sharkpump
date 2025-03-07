@@ -222,8 +222,10 @@ const tableMode = useLocalStorage('tableMode', false);
             />
             <CollapseTransition>
                 <AnimationsRow
+                    class="my-4"
                     :initialTrades="$page.props.initialTrades"
                     v-show="animate"
+                    :mine="type == 'mine'"
                 />
             </CollapseTransition>
 

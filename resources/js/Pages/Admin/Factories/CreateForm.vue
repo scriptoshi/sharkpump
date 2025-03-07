@@ -38,6 +38,7 @@ const form = useForm({
     minContribution: 0,
     poolFee: 0,
     sellFee: 0,
+    buyFee: 0,
     uniswapV3Factory: 0,
     positionManager: 0,
     weth: 0,
@@ -57,6 +58,7 @@ watch(chainId, (chainId) => {
         form.minContribution = config.minContribution;
         form.poolFee = config.poolFee;
         form.sellFee = config.sellFee;
+        form.buyFee = config.buyFee;
         form.uniswapV3Factory = config.uniswapV3Factory;
         form.positionManager = config.positionManager;
         form.weth = config.weth;
@@ -90,6 +92,7 @@ const deployContract = async () => {
         minContribution: parseEther(`${form.minContribution}`),
         poolFee: `${form.poolFee}`,
         sellFee: `${form.sellFee}`,
+        buyFee: `${form.buyFee}`,
         uniswapV3Factory: isAddress(form.uniswapV3Factory),
         positionManager: isAddress(form.positionManager),
         weth: isAddress(form.weth),
@@ -117,7 +120,7 @@ const deployContract = async () => {
     }
     await state.call(
         "deploySystem",
-        [address.value, parseEther(form.fees), settings],
+        [address.value, parseEther(`${form.fees}`), settings],
         fees.value,
     );
     if (state.error) return;
@@ -209,9 +212,23 @@ const deployContract = async () => {
                         </template>
                     </FormInput>
                     <FormInput
+                        label="Buy Token Fees (Percent x 100)"
+                        help="A fee charged when users buy tokens on the bonding curve"
+                        v-model="form.buyFee"
+                        :error="form.errors.buyFee"
+                        type="text"
+                    >
+                        <template #trail>
+                            {{
+                                (form.buyFee / 100).toFixed(
+                                    4,
+                                ) * 1
+                            }}%
+                        </template>
+                    </FormInput>
+                    <FormInput
                         label="Sell Token Fees (Percent x 100)"
                         help="A fee charged when users sell tokens on the bonding curve"
-                        class="md:col-span-2"
                         v-model="form.sellFee"
                         :error="form.errors.sellFee"
                         type="text"

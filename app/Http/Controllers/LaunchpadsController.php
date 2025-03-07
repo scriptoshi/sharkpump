@@ -17,6 +17,7 @@ use App\Models\Poolstat;
 use App\Models\Promo;
 use App\Models\Rate;
 use App\Models\Trade as ModelsTrade;
+use Auth;
 use Carbon\Carbon;
 use Gate;
 use Illuminate\Database\Eloquent\Builder;
@@ -226,6 +227,7 @@ class LaunchpadsController extends Controller
                 ->get(),
             'initialTrades' => fn() => ModelsTrade::query()
                 ->with('launchpad')
+                ->when($type == 'mine', fn($q) => $q->whereRaw('LOWER(address) = ?', [strtolower($request->user()?->address) ?? NULL]))
                 ->latest()
                 ->take(3)
                 ->get()

@@ -197,6 +197,7 @@ export const useFactoryConfig = (abi, address, functionName = 'getBondingCurveSe
         minContribution: 0,
         poolFee: 0,
         sellFee: 0,
+        buyFee: 0,
         uniswapV3Factory: 0,
         positionManager: 0,
         weth: 0,
@@ -216,6 +217,7 @@ export const useFactoryConfig = (abi, address, functionName = 'getBondingCurveSe
         config.minContribution = formatEther(response.minContribution);
         config.poolFee = response.poolFee;
         config.sellFee = response.sellFee;
+        config.buyFee = response.buyFee;
         config.uniswapV3Factory = response.uniswapV3Factory;
         config.positionManager = response.positionManager;
         config.weth = response.weth;
@@ -257,6 +259,7 @@ export const useLaunchpadInfo = (launchpad) => {
         tokenBalance: 0n,
         poolFee: 0,
         sellFee: 0,
+        buyFee: 0,
         contributions: 0,
         tokenLocks: false,
         tokenAllocations: 0,
@@ -383,6 +386,7 @@ export const useLaunchpadInfo = (launchpad) => {
             settings.minContribution = formatEther(getBondingCurveSettings.result.minContribution);
             settings.poolFee = getBondingCurveSettings.result.poolFee / 10000;
             settings.sellFee = getBondingCurveSettings.result.sellFee / 10000;
+            settings.buyFee = getBondingCurveSettings.result.buyFee / 10000;
             settings.uniswapV3Factory = isAddress(getBondingCurveSettings.result.uniswapV3Factory);
             settings.positionManager = isAddress(getBondingCurveSettings.result.positionManager);
             settings.weth = isAddress(getBondingCurveSettings.result.weth);

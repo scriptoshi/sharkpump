@@ -5,7 +5,6 @@ use App\Http\Controllers\MsgsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\S3Controller;
 use App\Http\Controllers\TradesController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
