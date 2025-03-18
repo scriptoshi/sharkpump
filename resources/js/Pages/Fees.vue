@@ -23,7 +23,7 @@ The deployment fee covers the cost of smart contract deployment, initial setup, 
 
 When trading on our proprietary bonding curve mechanism:
 
-- **Buy Trades**: No fee
+- **Buy Trades**: 1% fee on the total transaction value
 - **Sell Trades**: 1% fee on the total transaction value
 
 This fee structure encourages holding and strategic trading while providing necessary resources for platform maintenance and development.
