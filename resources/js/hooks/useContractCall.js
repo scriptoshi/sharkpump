@@ -191,6 +191,7 @@ export const useContractFees = (abi, address, functionName = 'fees') => {
 export const useFactoryConfig = (abi, address, functionName = 'getBondingCurveSettings') => {
     const publicClient = getPublicClient(useConfig());
     const config = reactive({
+        loading: false,
         virtualEth: 0,
         preBondingTarget: 0,
         bondingTarget: 0,
@@ -206,6 +207,7 @@ export const useFactoryConfig = (abi, address, functionName = 'getBondingCurveSe
     });
     const chainId = useChainId();
     config.load = async () => {
+        config.loading = true;
         const response = await publicClient.readContract({
             abi,
             address: get(address),
@@ -222,6 +224,7 @@ export const useFactoryConfig = (abi, address, functionName = 'getBondingCurveSe
         config.positionManager = response.positionManager;
         config.weth = response.weth;
         config.feeTo = response.feeTo;
+        config.loading = false;
     };
     watch(
         chainId,

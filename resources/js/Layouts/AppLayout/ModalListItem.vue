@@ -1,16 +1,27 @@
 <script setup>
-	import { useBillions } from "@/hooks";
+import ChainSymbol from "@/Components/ChainSymbol.vue";
+import Loading from "@/Components/Loading.vue";
+import { useBillions } from "@/hooks";
+import { useFactoryConfig } from "@/hooks/useContractCall";
+const props = defineProps({
+    rate: Number,
+    factory: Object
+});
+const config = useFactoryConfig(
+    props.factory.factory_abi,
+    props.factory.contract,
+);
 
-	defineProps({
-		rate: Number,
-		config: Object,
-	});
 </script>
 <template>
-	<li class="flex items-center text-yellow-400">
-		<DollarSign class="w-4 h-4 mr-2" />
-		{{ config.bondingTarget }} {{ config.symbol }} (~${{
-			useBillions(config.bondingTarget * rate)
-		}})
-	</li>
+    <li class="flex items-center font-lg text-yellow-400">
+        <Loading
+            v-if="config.loading"
+            class="w-5 h-5 mr-2"
+        />
+        {{ config.bondingTarget }}
+        <ChainSymbol :chain-id="factory.chainId" /> (~${{
+            useBillions(config.bondingTarget * rate)
+        }})
+    </li>
 </template>

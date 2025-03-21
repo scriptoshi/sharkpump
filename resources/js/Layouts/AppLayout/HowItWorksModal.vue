@@ -89,9 +89,10 @@ const chainId = useChainId();
                                 <ul class="space-y-2">
                                     <ModalListItem
                                         :key="chainId"
-                                        v-if="$page.props.evm[chainId]"
+                                        :chainId="chainId"
+                                        v-if="$page.props.factories[chainId]"
                                         :rate="$page.props.usdRates[chainId]"
-                                        :config="$page.props.evm[chainId]"
+                                        :factory="$page.props.factories[chainId]"
                                     />
                                 </ul>
                             </div>

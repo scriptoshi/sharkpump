@@ -107,6 +107,13 @@ class HandleInertiaRequests extends Middleware
             'usdRates' =>  function () {
                 return Rate::query()->pluck('usd_rate', 'chainId')->all();
             },
+            'factories' => function () {
+                $factories = Factory::latestByChain()->get();
+                return $factories->map(function (Factory $factory) {
+                    $factory->chainId = (int) $factory->chainId;
+                    return $factory;
+                })->keyBy('chainId');
+            },
         ];
     }
 }
