@@ -100,7 +100,7 @@ class HandleInertiaRequests extends Middleware
                     });
                 }
                 $chains = Factory::query()->pluck('chainId')->map(fn($ch) => (int)$ch)->values()->unique()->all();
-                return [...$chains, 11155111]; // always return sepolia
+                return [...$chains, ...(config('app.demo') ? [11155111] : [])]; // always return sepolia in demo
             },
             'isAdminRoute' => $isAdminRoute,
             'projectId' => config('evm.project_id'),
