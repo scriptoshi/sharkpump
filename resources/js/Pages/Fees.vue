@@ -12,7 +12,7 @@ PumpFans.io implements a transparent fee structure designed to maintain platform
 
 When launching a new token or project on PumpFans.io, the following deployment fees apply:
 
-- **Base Deployment Fee**: $50-100 USD
+- **Base Deployment Fee**: 0.006 BNB
 - **Fee Variation**: Depends on the blockchain network selected
   
 The deployment fee covers the cost of smart contract deployment, initial setup, and integration with the PumpFans.io ecosystem.
@@ -23,8 +23,8 @@ The deployment fee covers the cost of smart contract deployment, initial setup, 
 
 When trading on our proprietary bonding curve mechanism:
 
-- **Buy Trades**: 1% fee on the total transaction value
-- **Sell Trades**: 1% fee on the total transaction value
+- **Buy Trades**: 0.75% fee on the total transaction value
+- **Sell Trades**: 0.75% fee on the total transaction value
 
 This fee structure encourages holding and strategic trading while providing necessary resources for platform maintenance and development.
 
@@ -36,10 +36,10 @@ When liquidity is migrated to external decentralized exchanges (specifically Uni
   - These fees are charged by Uniswap as per their standard protocol
   - **Important**: These Uniswap fees can be claimed by the project developer
 
-## Liquidity Token (NFT) Lockup
+## Liquidity Providers (LP) Tokens Lockup
 
 - **Lockup Period**: 10 years
-- After the 10-year lockup period, the Liquidity Token (NFT) will be unlocked
+- After the 10-year lockup period, the Liquidity Providers (LP) Tokens will be unlocked
 - This long-term lockup ensures project stability and demonstrates our commitment to sustainable tokenomics
 
 ## Fee Allocation
@@ -57,7 +57,7 @@ PumpFans.io reserves the right to adjust the fee structure in response to market
 
 ---
 
-*Last Updated: February 26, 2025*
+*Last Updated: March 25, 2025*
 
 For additional questions regarding our fee structure, please contact our support team through the official channels listed on our website.`;
 </script>
