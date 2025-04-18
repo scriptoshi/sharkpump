@@ -53,6 +53,7 @@ class HandleInertiaRequests extends Middleware
                 ]);
             }),
             'links' => [
+                ...config('app.links', []),
                 ...Arr::only(
                     $setting->toArray(),
                     [
@@ -64,7 +65,6 @@ class HandleInertiaRequests extends Middleware
                         'documentation',
                     ]
                 ),
-                ...config('app.links', []),
             ],
             'appName' => $setting->name ?? config('app.name'),
             'appLogo' => $setting->logo,

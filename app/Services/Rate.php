@@ -17,8 +17,8 @@ class Rate
     public static function api($path)
     {
 
-        $token = config('env.coincap_apikey');
-        $response = Http::withToken($token)->get("https://api.coincap.io/v2/$path");
+        $token = config('evm.coincap_apikey');
+        $response = Http::withToken($token)->get("https://rest.coincap.io/v3/$path");
         if (!$response->successful()) {
             throw new \Exception("Failed to fetch api for $path");
         }

@@ -111,7 +111,7 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
                                     class="inline-flex items-center space-x-2 text-sm font-semibold hover:text-primary transition-colors"
                                 >
                                     <XIcon class="w-4 h-4" />
-                                    <span>{{ $t("Twitter") }}</span>
+                                    <span>{{ $t("Profile") }}</span>
                                 </a>
                             </li>
                             <li v-if="$page.props.links.tgGroup">
@@ -158,7 +158,7 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
                         <!-- Social Links -->
 
                         <!-- Telegram Bot Button -->
-                        <PrimaryButton class="w-full justify-center">
+                        <PrimaryButton class="w-full hidden justify-center">
                             <svg
                                 class="w-5 h-5 mr-2"
                                 viewBox="0 0 24 24"
