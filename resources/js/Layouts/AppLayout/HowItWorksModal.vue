@@ -29,11 +29,16 @@ const chainId = useChainId();
                 </Link>
                 <header class="text-center mb-6">
                     <h1 class="text-4xl font-bold">
-                        {{ $t("Fair Launch Protocol") }}
+                        {{ $t("Telegram Ai Crypto Agents") }}
                     </h1>
                     <p class="text-gray-300">
                         {{
                             $t("No pre-sale, no insiders, maximum transparency")
+                        }}
+                    </p>
+                    <p class="text-gray-300">
+                        {{
+                            $t("From Travel agents, to real estate agents, to trading agents")
                         }}
                     </p>
                 </header>
@@ -42,10 +47,7 @@ const chainId = useChainId();
                 <div class="max-w-3xl mx-auto">
                     <div class="grid gap-6">
                         <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                            <h2 class="text-xl font-semibold mb-4">
-                                {{ $t("Key Features") }}
-                            </h2>
-                            <ul class="space-y-3 grid sm:grid-cols-2">
+                            <ul class="space-y-2 grid sm:grid-cols-2">
                                 <li class="flex items-center">
                                     <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
                                     <span>{{ $t("Max 1B supply") }}</span>
@@ -110,12 +112,12 @@ const chainId = useChainId();
                         <div class="bg-gray-800 rounded-lg p-2 shadow-lg text-center">
                             <DollarSign class="w-8 h-8 mx-auto mb-4 text-green-400" />
                             <h3 class="font-semibold mb-2">
-                                {{ $t("Launch, Lock & Earn") }}
+                                {{ $t("Instant Token Utility") }}
                             </h3>
                             <p class="text-sm text-gray-300">
                                 {{
                                     $t(
-                                        "Launch on Uniswap and earn LP rewards for life!",
+                                        "Agent Chats are paid for using your token.",
                                     )
                                 }}
                             </p>
@@ -124,12 +126,12 @@ const chainId = useChainId();
                         <div class="bg-gray-800 rounded-lg p-2 shadow-lg text-center">
                             <Rocket class="w-8 h-8 mx-auto mb-4 text-blue-400" />
                             <h3 class="font-semibold mb-2">
-                                {{ $t("Enhanced Token Info") }}
+                                {{ $t("Full functional Agents") }}
                             </h3>
                             <p class="text-sm text-gray-300">
                                 {{
                                     $t(
-                                        "Free Enhanced Token Info for better DEX Tools visibility",
+                                        "Connect Agents to external data and tools",
                                     )
                                 }}
                             </p>

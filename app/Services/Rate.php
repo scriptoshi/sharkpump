@@ -9,61 +9,99 @@ use Illuminate\Support\Facades\Http;
 
 class Rate
 {
+    /**
+     * Base URL for alternative.me API
+     */
+    protected static $baseUrl = "https://api.alternative.me/v2";
 
     /**
-     * call the coincap api
+     * Call the alternative.me API
      */
-
-    public static function api($path)
+    public static function api($endpoint, $params = [])
     {
+        $url = static::$baseUrl . "/" . $endpoint;
 
-        $token = config('evm.coincap_apikey');
-        $response = Http::withToken($token)->get("https://rest.coincap.io/v3/$path");
-        if (!$response->successful()) {
-            throw new \Exception("Failed to fetch api for $path");
+        // Add query parameters if they exist
+        if (!empty($params)) {
+            $url .= '?' . http_build_query($params);
         }
-        return $response->json('data', []);
+
+        $response = Http::get($url);
+
+        if (!$response->successful()) {
+            throw new \Exception("Failed to fetch api for $endpoint");
+        }
+
+        return $response->json();
     }
 
     /**
-     * cache the coincap symbols for easy retriviels
+     * Cache the cryptocurrency symbols for easy retrieval
      */
-    public static function  symbols()
+    public static function symbols()
     {
         return Cache::remember('--rates--symbols--', 60 * 60, function () {
-            $assets =  [];
-            foreach (static::api('assets') as $asset) {
-                $assets[$asset['symbol']] = floatval($asset['priceUsd']);
+            $assets = [];
+
+            // Get all crypto data - limit=0 returns all available data
+            $cryptoData = static::api('ticker', ['limit' => 0]);
+
+            if (isset($cryptoData['data'])) {
+                // If data is returned as an object/dictionary
+                if (is_array($cryptoData['data']) && !isset($cryptoData['data'][0])) {
+                    foreach ($cryptoData['data'] as $id => $crypto) {
+                        if (isset($crypto['symbol']) && isset($crypto['quotes']['USD']['price'])) {
+                            $assets[$crypto['symbol']] = floatval($crypto['quotes']['USD']['price']);
+                        }
+                    }
+                }
+                // If data is returned as an array
+                else {
+                    foreach ($cryptoData['data'] as $crypto) {
+                        if (isset($crypto['symbol']) && isset($crypto['quotes']['USD']['price'])) {
+                            $assets[$crypto['symbol']] = floatval($crypto['quotes']['USD']['price']);
+                        }
+                    }
+                }
             }
-            foreach (static::api('rates') as $asset) {
-                $assets[$asset['symbol']] = floatval($asset['rateUsd']);
-            }
+
             return $assets;
         });
     }
 
     /**
-     * update the rates table for the chain currencies
+     * Update the rates table for the chain currencies
      */
     public static function update()
     {
-        $siteCurrency = 'USD';
-        $assets = collect(static::api('assets'))->flatMap(function ($asset) {
-            return [$asset['symbol'] => floatval($asset['priceUsd'])];
-        });
-        $rates = collect(static::api('rates'))->flatMap(function ($asset) {
-            return [$asset['symbol'] => floatval($asset['rateUsd'])];
-        });
+        // Get all crypto prices
+        $tickerData = static::api('ticker', ['limit' => 0]);
+        $assets = [];
+
+        if (isset($tickerData['data'])) {
+            // If data is returned as an object/dictionary
+            if (is_array($tickerData['data']) && !isset($tickerData['data'][0])) {
+                foreach ($tickerData['data'] as $id => $crypto) {
+                    if (isset($crypto['symbol']) && isset($crypto['quotes']['USD']['price'])) {
+                        $assets[$crypto['symbol']] = floatval($crypto['quotes']['USD']['price']);
+                    }
+                }
+            }
+            // If data is returned as an array
+            else {
+                foreach ($tickerData['data'] as $crypto) {
+                    if (isset($crypto['symbol']) && isset($crypto['quotes']['USD']['price'])) {
+                        $assets[$crypto['symbol']] = floatval($crypto['quotes']['USD']['price']);
+                    }
+                }
+            }
+        }
+
         ModelsRate::pluck('symbol')
             ->unique()
-            ->each(function ($symbol) use ($assets, $rates, $siteCurrency) {
-                $rate = $assets[$symbol] ?? $rates[$symbol] ?? null;
+            ->each(function ($symbol) use ($assets) {
+                $rate = $assets[$symbol] ?? null;
                 if (!$rate) return;
-                if ($siteCurrency != 'USD') {
-                    $conversionRate = $rates[$siteCurrency];
-                    if (!$conversionRate) return;
-                    $rate *= $conversionRate;
-                }
                 ModelsRate::where('symbol', $symbol)->update(['usd_rate' => $rate]);
             });
     }

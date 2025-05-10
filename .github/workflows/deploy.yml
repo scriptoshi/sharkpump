@@ -7,10 +7,11 @@ on:
 
 # Define environment variables for easier configuration
 env:
-    SITE_DIR: ${{ vars.SITE_DIR || 'pumpfans.io' }}
-    REPO_NAME: ${{ vars.REPO_NAME || 'pumpfans' }}
-    GIT_REMOTE: ${{ vars.GIT_REMOTE || 'github-memex:scriptoshi/pumpfans.git' }}
-    ENV_SOURCE: ${{ vars.ENV_SOURCE || '/var/www/envs/.pumpfans' }}
+    SITE_DIR: ${{ vars.SITE_DIR || 'sharkpump.io' }}
+    REPO_NAME: ${{ vars.REPO_NAME || 'sharkpump' }}
+    GIT_REMOTE: ${{ vars.GIT_REMOTE || 'github-sharkpumpio:scriptoshi/sharkpump.git' }}
+    ENV_SOURCE: ${{ vars.ENV_SOURCE || 'envs/.sharkpump' }}
+    WWW_DIR: ${{ vars.WWW_DIR || '/var/www' }}
 
 jobs:
     deploy:
@@ -24,14 +25,15 @@ jobs:
                   username: ${{ secrets.USERNAME }}
                   port: ${{ secrets.PORT }}
                   key: ${{ secrets.SSHKEY }}
-                  envs: SITE_DIR,REPO_NAME,GIT_REMOTE,ENV_SOURCE
+                  envs: SITE_DIR,REPO_NAME,GIT_REMOTE,ENV_SOURCE,WWW_DIR
                   script: |
                       echo "Deployment started ..."
-                      rm -rf /var/www/${{ env.REPO_NAME }}
-                      cd /var/www && git clone ${{ env.GIT_REMOTE }} ${{ env.REPO_NAME }}
-                      cp ${{ env.ENV_SOURCE }} /var/www/${{ env.REPO_NAME }}/.env
-                      cd /var/www/${{ env.REPO_NAME }} && chmod u+r+x ./.scripts/deploy.sh
+                      rm -rf ${{ env.WWW_DIR }}/${{ env.REPO_NAME }}
+                      cd ${{ env.WWW_DIR }} && git clone ${{ env.GIT_REMOTE }} ${{ env.REPO_NAME }}
+                      cp ${{ env.WWW_DIR }}/${{ env.ENV_SOURCE }} ${{ env.WWW_DIR }}/${{ env.REPO_NAME }}/.env
+                      cd ${{ env.WWW_DIR }}/${{ env.REPO_NAME }} && chmod u+r+x ./.scripts/deploy.sh
                       echo "Running Deployment"
                       SITE_DIR="${{ env.SITE_DIR }}" \
                       REPO_NAME="${{ env.REPO_NAME }}" \
+                      WWW_DIR="${{ env.WWW_DIR }}" \
                       ./.scripts/deploy.sh

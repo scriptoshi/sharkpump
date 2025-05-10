@@ -70,6 +70,14 @@ class Launchpad extends Model
         'active'
     ];
 
+    /**
+     * Get the bots this lanchpad owns
+     */
+    public function bots(): HasMany
+    {
+        return $this->hasMany(Bot::class);
+    }
+
 
     /**
 

@@ -18,14 +18,15 @@ class DatabaseSeeder extends Seeder
         Setting::query()->firstOrCreate([
             'id' => 1
         ], [
-            'name' => 'Memex',
-            'twitter' => "https://x.com/memex",
-            'youtube' => "https://youtube.com/@memex",
-            'telegram_group' => "https://t.me/memex",
-            'telegram_channel' => "https://t.me/memex",
-            'discord' => "https://discord.gg/memex",
-            'documentation' => "https://docs.memex.io",
+            'name' => 'SharkPump',
+            'twitter' => "https://x.com/sharkpumpio",
+            'youtube' => "https://youtube.com/@sharkpumpio",
+            'telegram_group' => "https://t.me/sharkpumpio",
+            'telegram_channel' => "https://t.me/sharkpumpio",
+            'discord' => "https://discord.gg/sharkpumpio",
+            'documentation' => "https://docs.sharkpump.io",
         ]);
         $this->call(RatesTableSeeder::class);
+        $this->call(BotCommandSeeder::class);
     }
 }

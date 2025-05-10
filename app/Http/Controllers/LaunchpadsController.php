@@ -343,7 +343,7 @@ class LaunchpadsController extends Controller
 
         return Inertia::render('Launchpads/Show', [
             'launchpad' => function () use ($launchpad) {
-                $launchpad->load(['factory', 'user']);
+                $launchpad->load(['factory', 'user', 'bots.tools', 'bots.commands']);
                 $launchpad->loadCount(['holders']);
                 return new LaunchpadResource($launchpad);
             },

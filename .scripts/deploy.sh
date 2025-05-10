@@ -2,9 +2,9 @@
 set -e
 
 # Default values for environment variables
-SITE_DIR=${SITE_DIR:-"betriver.scriptoshi.com"}
-REPO_NAME=${REPO_NAME:-"betriver"}
-WWW_DIR="/var/www"
+SITE_DIR=${SITE_DIR:-"sharpump.io"}
+REPO_NAME=${REPO_NAME:-"sharkpump"}
+WWW_DIR=${WWW_DIR:-"/var/www"}
 
 echo "Deployment started ..."
 echo "Deploying to site directory: $SITE_DIR"
@@ -47,8 +47,8 @@ cd ${WWW_DIR}/${SITE_DIR} && {
        # Create installation marker
     mkdir -p storage/app/public
     echo "{\"installed_at\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\", \"version\": \"$(php artisan --version | grep -oP 'Laravel Framework \K[\d.]+')\", \"app_version\": \"$(grep -oP "(?<='version' => ').*(?=')" config/app.php || echo '1.0.0')\"}" > storage/app/public/installed
-    sudo chgrp -R www-data storage bootstrap/cache
-    sudo chmod -R ug+rwx storage bootstrap/cache
+    chgrp -R www-data storage bootstrap/cache
+    chmod -R ug+rwx storage bootstrap/cache
 }
 
 echo "$SITE_DIR Deployment Finished"

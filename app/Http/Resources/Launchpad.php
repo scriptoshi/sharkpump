@@ -64,7 +64,7 @@ class Launchpad extends JsonResource
             'trades' => Trade::collection($this->whenLoaded('trades')),
             'msgs' => Msg::collection($this->whenLoaded('msgs')),
             'uploads' => Upload::collection($this->whenLoaded('uploads')),
-
+            'bots' => Bot::collection($this->whenLoaded('bots')),
         ];
     }
 }
