@@ -22,7 +22,7 @@ echo "Build complete!"
 echo "# Run fresh database migrations"
 php artisan migrate:fresh --force
 echo "# seeding the database"
-php artisan db:seed
+php artisan db:seed --force
 
 echo "Swapping Folders"
 rm -rf ${WWW_DIR}/${REPO_NAME}_back
