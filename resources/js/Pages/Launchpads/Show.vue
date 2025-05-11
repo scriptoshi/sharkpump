@@ -126,7 +126,8 @@ const setActiveBot = (bot) => {
 					<BaseButton
 						v-if="launchpad.isOwner"
 						url
-						:href="`https://agentic.sharkpump.io/${launchpad.contract}`"
+						target="_blank"
+						:href="`https://agentic.sharkpump.io/${launchpad.contract}/dashboard`"
 					>
 						Manage / Create Agents
 						<VueIcon :icon="BiArrowRightShort" />
@@ -161,7 +162,8 @@ const setActiveBot = (bot) => {
 							<h3 class="my-4 text-lg">Agents Admin Dashboard</h3>
 							<BaseButton
 								url
-								:href="`https://agentic.sharkpump.io/${launchpad.contract}`"
+								target="_blank"
+								:href="`https://agentic.sharkpump.io/${launchpad.contract}/dashboard`"
 							>
 								Manage / Create Agents
 								<VueIcon :icon="BiArrowRightShort" />
