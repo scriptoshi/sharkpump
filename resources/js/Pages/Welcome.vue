@@ -47,6 +47,13 @@ const filters = [
 	{ id: "new", icon: BellPlus },
 	{ id: "finalized", icon: AlarmClockCheck },
 ];
+const filterNames = {
+	trending: "Trend",
+	top: "Top",
+	rising: "Rising",
+	new: "New",
+	finalized: "Done",
+};
 const params = useUrlSearchParams("history");
 const search = ref(params.search ?? "");
 const currentSort = ref(params.sort ?? "");
@@ -120,7 +127,7 @@ const tableMode = useLocalStorage("tableMode", false);
 				>
 					<div class="flex flex-col justify-center items-center sm:items-start">
 						<h3 class="text-xl font-extralight">
-							{{ $t("Create code Agentic Telegram crypto bots") }}
+							{{ $t("Create no code Agentic Telegram crypto bots") }}
 						</h3>
 						<h3>
 							{{
@@ -158,10 +165,10 @@ const tableMode = useLocalStorage("tableMode", false);
 					<BaseButton
 						@click="animate = !animate"
 						size="xss"
-						class="font-semibold !px-4 py-1"
+						class="font-semibold !px-2 py-1"
 					>
 						{{ $t("Animation") }}
-						<SmallSwitch :modelValue="animate" class="ml-2"></SmallSwitch>
+						<SmallSwitch :modelValue="animate" class="ml-1"></SmallSwitch>
 					</BaseButton>
 					<BaseButton
 						v-for="filter in filters"
@@ -180,7 +187,7 @@ const tableMode = useLocalStorage("tableMode", false);
 							:is="filter.icon"
 							class="w-4 h-4 mr-1 -ml-1 inline-flex"
 						/>
-						{{ ucfirst(filter.id) }}
+						{{ filterNames[filter.id] }}
 					</BaseButton>
 					<BaseButton
 						size="xs"
@@ -202,11 +209,7 @@ const tableMode = useLocalStorage("tableMode", false);
 					>
 						<LayoutList class="w-5 h-5" />
 					</BaseButton>
-					<FormInput
-						v-model="search"
-						class="ml-auto sm:max-w-xs w-full"
-						size="sm"
-					>
+					<FormInput v-model="search" class="ml-auto" size="sm">
 						<template #lead>
 							<Search class="w-4 h-4 ml-1 text-gray-400" />
 						</template>

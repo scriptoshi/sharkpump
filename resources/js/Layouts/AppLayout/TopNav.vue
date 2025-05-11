@@ -94,7 +94,7 @@ const showHowItworks = ref(false);
 
 					<!-- Action Buttons -->
 					<PrimaryButton link href="/launch" size="xs" class="mr-2">
-						{{ $t("Launch Tg Agent") }}
+						{{ $t("Launch Ai Agent") }}
 					</PrimaryButton>
 					<Web3Auth />
 					<AuthLink />

@@ -83,7 +83,7 @@ const deploy = async () => {
 			<div class="card-body card-gutterless h-full">
 				<h3 class="mb-3 flex items-center gap-2">
 					<ComponentIcon class="w-7 h-7 stroke-[0.7] text-sky-400" />
-					{{ $t("Launch Telegram Agent") }}
+					{{ $t("Launch Telegram AI Agent") }}
 				</h3>
 				<div class="grid gap-6">
 					<div class="border p-3 border-gray-650 bg-gray-750/50">
