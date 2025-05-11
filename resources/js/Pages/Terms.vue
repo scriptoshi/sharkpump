@@ -1,359 +1,197 @@
 <script setup>
-import Markdown from 'vue3-markdown-it'; /* PartiallyEnd: #3632/scriptSetup.vue */
+import Markdown from "vue3-markdown-it"; /* PartiallyEnd: #3632/scriptSetup.vue */
 
-import AppLayout from '@/Layouts/AppLayout.vue';
-const terms = `
-# Terms Of Use
+import AppLayout from "@/Layouts/AppLayout.vue";
+const terms = `# Terms Of Use
 
-Last Updated: February 1st, 2025
+**Last Updated: February 1st, 2025**
 
-## IMPORTANT NOTICE: READ CAREFULLY -- NOT A TRADING PLATFORM, NO CUSTODY, EXTREME RISK OF LOSS.
+## IMPORTANT NOTICE: READ CAREFULLY – NOT A TRADING PLATFORM, NO CUSTODY, EXTREME RISK OF LOSS.
 
-**Pumpfans.io IS NOT A PLATFORM FOR TRADING OR INVESTMENT. WE ARE A TECHNOLOGY PROVIDER OFFERING TRANSACTION TEMPLATES ONLY. WE DO NOT PROVIDE CUSTODY OF DIGITAL ASSETS. WE DO NOT OPERATE AN EXCHANGE OR BROKERAGE. WE DO NOT OFFER INVESTMENT ADVICE, FINANCIAL ADVICE, OR RECOMMENDATIONS OF ANY KIND. DIGITAL ASSETS DISPLAYED AND DISCUSSED ON THIS SITE ARE USER-CREATED AND EXTREMELY SPECULATIVE AND RISKY, AND MOST ARE LIKELY TO LOSE ALL VALUE. YOU COULD SUFFER A COMPLETE LOSS OF YOUR INVESTMENT. BY USING THIS SITE, YOU EXPRESSLY ACKNOWLEDGE, UNDERSTAND, AND AGREE TO THE INHERENT AND SUBSTANTIAL RISKS, LIMITATIONS, AND DISCLAIMERS DETAILED BELOW. THIS DOCUMENT IS NOT LEGAL OR FINANCIAL ADVICE. CONSULT PROFESSIONAL LEGAL AND FINANCIAL COUNSEL BEFORE USING THIS SITE OR ENGAGING IN ANY DIGITAL ASSET TRANSACTIONS.**
+**Sharkpump.io IS NOT A TRADING PLATFORM, BROKERAGE, OR INVESTMENT SERVICE.** We are solely a technology provider offering **transaction templates.** We **do not provide custody** of digital assets, operate an exchange, or offer any form of investment or financial advice. Digital assets showcased or discussed on this Site are **user-created, highly speculative, and carry an extreme risk of total financial loss.** You could lose your entire investment.
+
+**BY USING THIS SITE, YOU EXPRESSLY ACKNOWLEDGE, UNDERSTAND, AND AGREE TO THE INHERENT AND SUBSTANTIAL RISKS, LIMITATIONS, AND DISCLAIMERS DETAILED BELOW.** This document is not legal or financial advice. **Consult professional legal and financial counsel before using this Site or engaging in any digital asset transactions.**
 
 ## 1. Introduction
 
-Welcome to Pumpfans.io (the "Site"), an informational interface and technology tool that provides users with blockchain transaction templates. Pumpfans.io (also referred to as "we," "our," or "us") operates as a non-custodial service, exclusively offering transaction templating tools. We do not provide custodial services, execute trades, or facilitate exchanges for profit. Instead, we simply provide a formatted interface to help users create transaction data that they may independently choose to broadcast to a blockchain network using their own external cryptocurrency wallets.
+Welcome to Sharkpump.io (the "Site"), an informational interface and technology tool providing blockchain transaction templates. Sharkpump.io (referred to as "we," "our," or "us") operates as a non-custodial service, exclusively offering tools to help users create transaction data. We do not provide custody, execute trades, or facilitate exchanges for profit. Instead, we simply offer a formatted interface to assist users in generating transaction data, which they may independently choose to broadcast to a blockchain network using their own external cryptocurrency wallets.
 
-These Terms of Use ("Terms") govern your access to and use of the Site and any related services and features provided (collectively, the "Services"). Please read these Terms carefully and in their entirety. By accessing or using our Site, you acknowledge that you have read, understood, and unconditionally agree to be bound by these Terms in their entirety. If you do not agree to be bound by these Terms, you must not access or use the Site.
+These Terms of Use ("Terms") govern your access to and use of the Site and any related services and features provided (collectively, the "Services"). Please read these Terms carefully and completely. By accessing or using our Site, you confirm that you have read, understood, and unconditionally agree to be bound by these Terms in their entirety. If you do not agree, you must not access or use the Site.
 
-## 2. No Custody, No Brokerage, No Exchange -- Purely a Transaction Templating Tool
+## 2. No Custody, No Brokerage, No Exchange – Purely a Transaction Templating Tool
 
-### 2.1. Non-Custodial Interface -- Absolute User Control and Responsibility
+### 2.1. Non-Custodial Interface – Absolute User Control and Responsibility
 
-We operate a strictly non-custodial technology solution. We do not, at any time, hold, manage, control, or have access to your digital assets, private keys, or wallet credentials. Your digital assets remain solely under your control at all times.
+We operate a strictly non-custodial technology solution. We never hold, manage, control, or have access to your digital assets, private keys, or wallet credentials. Your digital assets remain solely under your control at all times.
 
-All blockchain transactions you submit are initiated, authorized, and executed solely by you, acting independently through your own third-party digital wallet or smart contract interface. You bear exclusive and absolute responsibility for the security, access, and management of your private keys, digital wallets, and all digital assets held therein.
+All blockchain transactions you submit are initiated, authorized, and executed solely by you, independently through your own third-party digital wallet or smart contract interface. You bear exclusive and absolute responsibility for the security, access, and management of your private keys, digital wallets, and all digital assets held therein.
 
-### 2.2 No Execution or Brokerage -- Not a Financial or Intermediary Service
+### 2.2 No Execution or Brokerage – Not a Financial or Intermediary Service
 
-Pumpfans.io is not a registered or regulated entity and does not operate as a broker, dealer, exchange, investment adviser, money transmitter, payment processor, or any other form of financial intermediary.
+Sharkpump.io is not a registered or regulated entity and does not operate as a broker, dealer, exchange, investment adviser, money transmitter, payment processor, or any other form of financial intermediary.
 
 We do not match buyers and sellers, operate order books, facilitate trade execution, or handle any aspect of transaction settlement or clearing.
 
-Pumpfans.io provides no investment advice, financial recommendations, endorsements, or solicitations regarding any digital asset, token, or transaction. Information displayed on the Site is for informational purposes only and should not be construed as investment advice.
+Sharkpump.io provides no investment advice, financial recommendations, endorsements, or solicitations regarding any digital asset, token, or transaction. Information displayed on the Site is for informational purposes only and should not be construed as investment advice.
 
-Any transaction data generated by the Site is formatted using templates and is initiated and broadcast solely by you. You, and you alone, are solely responsible for deciding whether to finalize and broadcast such transactions to any blockchain. We play no role in transaction execution or settlement.
+Any transaction data generated by the Site uses templates and is initiated and broadcast solely by you. You, and you alone, are solely responsible for deciding whether to finalize and broadcast such transactions to any blockchain. We play no role in transaction execution or settlement.
 
-## 3. Transaction Templates -- User-Driven and User-Verified
+## 3. Transaction Templates – User-Driven and User-Verified
 
-### 3.1 Transaction Templates -- Convenience and Formatting Assistance Only
+### 3.1 Transaction Templates – Convenience and Formatting Assistance Only
 
 The Site provides user-friendly interfaces and pre-designed "transaction templates" (e.g., for assisting in creating new tokens, providing liquidity to decentralized exchanges, or interacting with smart contracts). These templates are intended solely to assist users in formatting blockchain transaction parameters and are provided for convenience only.
 
 Crucially, you remain fully and exclusively responsible for all aspects of any transaction you choose to initiate, including but not limited to: independently verifying the accuracy and completeness of all transaction parameters, ensuring the sufficiency of blockchain network fees (gas fees), and confirming full compliance with all applicable laws and regulations before broadcasting any transaction.
 
-### 3.2 User Due Diligence -- Your Essential Obligation to Investigate and Verify
+### 3.2 User Due Diligence – Your Essential Obligation to Investigate and Verify
 
 Prior to using the Site to format any transaction, you acknowledge and agree that you must conduct your own thorough, independent, and informed due diligence regarding any digital asset, token creation, liquidity provision, smart contract interaction, or other on-chain transaction. This includes, but is not limited to, researching the underlying technology, smart contract code, tokenomics, potential risks, and legal and regulatory implications.
 
-By using the Site, you explicitly acknowledge and agree that Pumpfans.io provides no due diligence, verification, or vetting of any kind and that we have not verified the legitimacy, authenticity, security, safety, or quality of any smart contract, digital asset, or project you interact with through the Site. All such verification and risk assessment is solely your responsibility.
+By using the Site, you explicitly acknowledge and agree that Sharkpump.io provides no due diligence, verification, or vetting of any kind and that we have not verified the legitimacy, authenticity, security, safety, or quality of any smart contract, digital asset, or project you interact with through the Site. All such verification and risk assessment is solely your responsibility.
 
-### 3.3 No Endorsement -- Informational Display Without Warranty
+### 3.3 No Endorsement – Informational Display Without Warranty
 
-Any references to, mentions of, or display of third-party protocols, tokens, digital assets, services, projects, or entities on the Site are provided solely for informational and convenience purposes and do not, under any circumstances, constitute an endorsement, recommendation, sponsorship, promotion, or warranty of any kind by Pumpfans.io.
+Any references to, mentions of, or display of third-party protocols, tokens, digital assets, services, projects, or entities on the Site are provided solely for informational and convenience purposes and do not, under any circumstances, constitute an endorsement, recommendation, sponsorship, promotion, or warranty of any kind by Sharkpump.io.
 
-The display of logos, token symbols, price data, market capitalization information, or other data on the Site is intended solely for user convenience in formatting transactions and does not imply any opinion, endorsement, validation, or guarantee of accuracy, reliability, or legitimacy by Pumpfans.io. We provide no representations or warranties regarding the accuracy, completeness, or timeliness of any data displayed on the Site, which is sourced from publicly available blockchain data and may be subject to errors, delays, and manipulation.
+The display of logos, token symbols, price data, market capitalization information, or other data on the Site is intended solely for user convenience in formatting transactions and does not imply any opinion, endorsement, validation, or guarantee of accuracy, reliability, or legitimacy by Sharkpump.io. We provide no representations or warranties regarding the accuracy, completeness, or timeliness of any data displayed on the Site, which is sourced from publicly available blockchain data and may be subject to errors, delays, and manipulation.
 
-## 4. Assumption of Risk -- You Must Understand and Accept Extreme Dangers
+## 4. Assumption of Risk – You Must Understand and Accept Extreme Dangers
 
-### 4.1 Blockchain and Cryptocurrency Risks -- Inherent, Substantial, and Potentially Devastating
+### 4.1 Blockchain and Cryptocurrency Risks – Inherent, Substantial, and Potentially Devastating
 
-You expressly acknowledge, understand, and agree that engaging with digital assets and blockchain transactions, particularly memecoins and tokens created and traded on platforms like the Site, is inherently speculative, extraordinarily risky, and carries a significant and ever-present risk of substantial and potentially total financial loss. These risks are not limited to but include:
+You expressly acknowledge, understand, and agree that engaging with digital assets and blockchain transactions, particularly memecoins and tokens created and traded on platforms like the Site, is inherently speculative, extraordinarily risky, and carries a significant and ever-present risk of substantial and potentially total financial loss. These risks include, but are not limited to:
 
-**Extreme Market Volatility and Price Swings**: Digital asset markets are characterized by extreme volatility, and prices for memecoins and tokens created and traded using the Site can fluctuate wildly and unpredictably, potentially resulting in rapid and complete loss of funds.
+* **Extreme Market Volatility and Price Swings**: Digital asset markets are characterized by extreme volatility, and prices for memecoins and tokens created and traded using the Site can fluctuate wildly and unpredictably, potentially resulting in rapid and complete loss of funds.
+* **Total Loss of Funds**: You acknowledge and accept that you could lose all cryptocurrency and digital assets used in transactions initiated through the Site. The value of memecoins and tokens can rapidly decline to zero.
+* **Smart Contract Risks and Exploitable Vulnerabilities**: Smart contracts are complex computer code and are known to be vulnerable to coding errors, bugs, security flaws, and exploits. These vulnerabilities can be exploited by malicious actors, potentially leading to the theft or irreversible loss of your digital assets.
+* **Rug Pull Scams and Fraudulent Schemes**: Memecoins and tokens, especially those created on open platforms, are highly susceptible to "rug pull" scams, pump-and-dump schemes, and other fraudulent activities. Creators or insiders may manipulate token prices and then abscond with user funds, leaving other users with worthless tokens and devastating losses. Sharkpump.io provides absolutely no protection against such scams.
+* **Exchange and Custodial Platform Risks**: Digital asset exchanges and wallet providers, including those you may choose to use to interact with the Site and manage your digital assets, are inherently risky and vulnerable to closure due to fraud, operational failure, security breaches, market manipulation, and regulatory actions. Any funds or digital assets held on such platforms are at risk of loss, theft, or inaccessibility.
+* **Illiquidity and Market Manipulation**: Many digital assets, particularly newly created memecoins and tokens, may have severely limited or no liquidity. This means you may be unable to sell or trade them at desired prices or at all, especially during periods of market downturn or panic selling. Market prices for illiquid digital assets can be easily manipulated, and information displayed on the Site regarding prices may not reflect actual trading prices or available liquidity.
+* **Legal and Regulatory Uncertainty and Risk**: The legal and regulatory status of digital assets, including memecoins and tokens, is highly uncertain and subject to rapid change. Governmental authorities worldwide are actively examining and regulating the digital asset space. Future regulations may drastically alter or negatively impact the legality, functionality, and value of digital assets, and may restrict or prohibit the operation of platforms like the Site.
+* **Private Key Security and Irreversible Loss**: Control of digital assets is exclusively dependent on the possession of private keys. Loss, theft, compromise, or destruction of your private keys will inevitably and irreversibly result in the permanent loss of your digital assets. Sharkpump.io has no access to or control over your private keys and cannot recover them under any circumstances if lost.
+* **Technology and Infrastructure Risks**: Blockchain technology, smart contracts, decentralized systems, and the Site itself are experimental and rely on complex and unproven technologies. These systems are subject to technical failures, software bugs, network congestion, security vulnerabilities, and unforeseen operational risks that could lead to service disruptions, data loss, and financial losses.
+* **Force Majeure Events and Unforeseen Circumstances**: The digital asset ecosystem and the Site are vulnerable to force majeure events and unforeseen circumstances that are beyond our control, including but not limited to acts of God, natural disasters, war, terrorism, cyberattacks, pandemics, governmental actions, and regulatory changes. These events can cause significant disruptions, market instability, and loss of value.
 
-**Total Loss of Funds**: You acknowledge and accept that you could lose all cryptocurrency and digital assets used in transactions initiated through the Site. The value of memecoins and tokens can rapidly decline to zero.
+### 4.2 No Guarantees, No Promises of Profit, No Investment Advice – You Are Your Own Financial Advisor
 
-**Smart Contract Risks and Exploitable Vulnerabilities**: Smart contracts, which govern many digital assets and decentralized platforms, are complex computer code and are known to be vulnerable to coding errors, bugs, security flaws, and exploits. These vulnerabilities can be exploited by malicious actors, potentially leading to the theft or irreversible loss of your digital assets.
+Sharkpump.io makes no guarantees, promises, or representations of any kind regarding the Site, the Services, or any digital assets accessed or created through the Site. We do not guarantee that using the Site will result in financial gains, profits, successful token launches, or any other positive outcome.
 
-**Rug Pull Scams and Fraudulent Schemes**: Memecoins and tokens, especially those created on open platforms, are highly susceptible to "rug pull" scams, pump-and-dump schemes, and other fraudulent activities. Creators or insiders may manipulate token prices and then abscond with user funds, leaving other users with worthless tokens and devastating losses. Pumpfans.io provides absolutely no protection against such scams.
-
-**Exchange and Custodial Platform Risks**: Digital asset exchanges and wallet providers, including those you may choose to use to interact with the Site and manage your digital assets, are inherently risky and vulnerable to closure due to fraud, operational failure, security breaches, market manipulation, and regulatory actions. Any funds or digital assets held on such platforms are at risk of loss, theft, or inaccessibility.
-
-**Illiquidity and Market Manipulation**: Many digital assets, particularly newly created memecoins and tokens, may have severely limited or no liquidity. This means you may be unable to sell or trade them at desired prices or at all, especially during periods of market downturn or panic selling. Market prices for illiquid digital assets can be easily manipulated, and information displayed on the Site regarding prices may not reflect actual trading prices or available liquidity.
-
-**Legal and Regulatory Uncertainty and Risk**: The legal and regulatory status of digital assets, including memecoins and tokens, is highly uncertain and subject to rapid change. Governmental authorities worldwide, including the U.S. Securities and Exchange Commission (SEC) and Commodity Futures Trading Commission (CFTC), are actively examining and regulating the digital asset space. Future regulations may drastically alter or negatively impact the legality, functionality, and value of digital assets, and may restrict or prohibit the operation of platforms like the Site.
-
-**Private Key Security and Irreversible Loss**: Control of digital assets is exclusively dependent on the possession of private keys. Loss, theft, compromise, or destruction of your private keys will inevitably and irreversibly result in the permanent loss of your digital assets. Pumpfans.io has no access to or control over your private keys and cannot recover them under any circumstances if lost.
-
-**Technology and Infrastructure Risks**: Blockchain technology, smart contracts, decentralized systems, and the Site itself are experimental and rely on complex and unproven technologies. These systems are subject to technical failures, software bugs, network congestion, security vulnerabilities, and unforeseen operational risks that could lead to service disruptions, data loss, and financial losses.
-
-**Force Majeure Events and Unforeseen Circumstances**: The digital asset ecosystem and the Site are vulnerable to force majeure events and unforeseen circumstances that are beyond our control, including but not limited to acts of God, natural disasters, war, terrorism, cyberattacks, pandemics, governmental actions, and regulatory changes. These events can cause significant disruptions, market instability, and loss of value.
-
-### 4.2 No Guarantees, No Promises of Profit, No Investment Advice -- You Are Your Own Financial Advisor
-
-Pumpfans.io makes no guarantees, promises, or representations of any kind regarding the Site, the Services, or any digital assets accessed or created through the Site. We do not guarantee that using the Site will result in financial gains, profits, successful token launches, or any other positive outcome.
-
-Pumpfans.io explicitly disclaims any and all responsibility for your financial outcomes and provides no financial, investment, legal, tax, or other professional advice. Information provided on the Site, including price data, educational content, and transaction templates, is for informational purposes only and should never be construed as advice or a recommendation to engage in any transaction or investment strategy.
+Sharkpump.io explicitly disclaims any and all responsibility for your financial outcomes and provides no financial, investment, legal, tax, or other professional advice. Information provided on the Site, including price data, educational content, and transaction templates, is for informational purposes only and should never be construed as advice or a recommendation to engage in any transaction or investment strategy.
 
 You acknowledge and agree that you are solely responsible for all of your investment decisions and financial activities related to digital assets and blockchain transactions. You must conduct your own independent research, seek advice from qualified financial and legal professionals, and carefully consider your own risk tolerance and financial circumstances before using the Site or engaging in any digital asset transactions. Never invest more than you can afford to lose entirely.
 
-### 4.3 Experimental Technology and "Beta" Nature -- Expect Imperfections and Risks
+### 4.3 Experimental Technology and "Beta" Nature – Expect Imperfections and Risks
 
 You acknowledge and agree that the Site and Services are based on rapidly evolving, experimental, and "beta" stage blockchain technology and software. As such, you understand that the Site and Services may contain errors, bugs, inaccuracies, unexpected behavior, and security vulnerabilities.
 
 You explicitly agree that your use of the Site and any experimental features is entirely at your own risk. We make no warranties or representations regarding the uptime, performance, accuracy, security, or reliability of the Site, Services, or any experimental features. You assume all risks associated with using experimental technology and acknowledge that disruptions, errors, and unexpected outcomes are possible.
 
-## 5. User Representations and Warranties -- Your Binding Commitments to Us
+## 5. User Representations and Warranties – Your Binding Commitments to Us
 
-By accessing and using the Site, you represent and warrant to Pumpfans.io that, continuously and at all times:
+By accessing and using the Site, you represent and warrant to Sharkpump.io that, continuously and at all times:
 
-**Age and Legal Capacity**: You are of legal age in your jurisdiction (at least 18 years old) and possess the full legal right, power, and capacity to enter into these Terms and to fully perform your obligations hereunder.
-
-**Risk Comprehension and Acceptance**: You have carefully read, fully understand, and knowingly and voluntarily accept the substantial and inherent risks associated with blockchain technology, digital assets, and the use of the Site, as detailed extensively in Section 4 of these Terms.
-
-**Independent and Informed Decision-Making**: You are accessing and using the Site and making all decisions regarding digital assets and transactions solely on your own behalf, based on your own independent judgment, thorough research, and informed consent. You are not relying on Pumpfans.io for any advice, recommendations, endorsements, or guarantees of any kind.
-
-**Sufficient Knowledge and Expertise**: You possess sufficient knowledge, experience, and understanding of blockchain technology, cryptography, digital assets, smart contracts, and financial markets to responsibly use the Site and Services and to fully assess and assume the risks involved in any transactions you undertake.
-
-**Lawful and Ethical Use and Intent**: You will utilize the Site and Services strictly for lawful and ethically appropriate purposes and transactions. You will not use the Site for any illegal, fraudulent, manipulative, unethical, or harmful activity, or in any manner that violates these Terms or any applicable laws or regulations, or that harms or defrauds others.
-
-**No Expectation of Guaranteed Profit or Financial Gain**: You understand, acknowledge, and agree that Pumpfans.io makes no promises or guarantees of profit, financial gain, or any specific financial outcome, and you are not using the Site with any such expectation of guaranteed returns or financial success.
-
-**Regulatory and Legal Compliance**: Your access to and use of the Site, and all related blockchain activities, are and will continue to be in full compliance with all applicable laws, rules, and regulations in your jurisdiction(s), including but not limited to securities laws, commodities laws, tax laws, anti-money laundering laws, consumer protection laws, and data privacy laws.
-
-**Accuracy and Truthfulness of Information**: All information you provide to Pumpfans.io, whether directly or indirectly, is truthful, accurate, complete, and not misleading in any respect.
-
-**No Location in Restricted Jurisdictions**: You are not physically located in, under the control of, and are not a national or resident of any country or region that Pumpfans.io has designated as a Restricted Jurisdiction (as defined and updated from time to time on the Site).
-
-**Transaction Verification Responsibility**: You understand and agree that, before signing and broadcasting any transaction using your digital wallet, you are solely and exclusively responsible for independently verifying all transaction parameters, including but not limited to recipient addresses, token amounts, smart contract interactions, and blockchain network fees. You will not rely solely on the Site's display of transaction parameters and will perform your own thorough verification.
+* **Age and Legal Capacity**: You are of legal age in your jurisdiction (at least 18 years old) and possess the full legal right, power, and capacity to enter into these Terms and to fully perform your obligations hereunder.
+* **Risk Comprehension and Acceptance**: You have carefully read, fully understand, and knowingly and voluntarily accept the substantial and inherent risks associated with blockchain technology, digital assets, and the use of the Site, as detailed extensively in Section 4 of these Terms.
+* **Independent and Informed Decision-Making**: You are accessing and using the Site and making all decisions regarding digital assets and transactions solely on your own behalf, based on your own independent judgment, thorough research, and informed consent. You are not relying on Sharkpump.io for any advice, recommendations, endorsements, or guarantees of any kind.
+* **Sufficient Knowledge and Expertise**: You possess sufficient knowledge, experience, and understanding of blockchain technology, cryptography, digital assets, smart contracts, and financial markets to responsibly use the Site and Services and to fully assess and assume the risks involved in any transactions you undertake.
+* **Lawful and Ethical Use and Intent**: You will utilize the Site and Services strictly for lawful and ethically appropriate purposes and transactions. You will not use the Site for any illegal, fraudulent, manipulative, unethical, or harmful activity, or in any manner that violates these Terms or any applicable laws or regulations, or that harms or defrauds others.
+* **No Expectation of Guaranteed Profit or Financial Gain**: You understand, acknowledge, and agree that Sharkpump.io makes no promises or guarantees of profit, financial gain, or any specific financial outcome, and you are not using the Site with any such expectation of guaranteed returns or financial success.
+* **Regulatory and Legal Compliance**: Your access to and use of the Site, and all related blockchain activities, are and will continue to be in full compliance with all applicable laws, rules, and regulations in your jurisdiction(s), including but not limited to securities laws, commodities laws, tax laws, anti-money laundering laws, consumer protection laws, and data privacy laws.
+* **Accuracy and Truthfulness of Information**: All information you provide to Sharkpump.io, whether directly or indirectly, is truthful, accurate, complete, and not misleading in any respect.
+* **No Location in Restricted Jurisdictions**: You are not physically located in, under the control of, and are not a national or resident of any country or region that Sharkpump.io has designated as a Restricted Jurisdiction (as defined and updated from time to time on the Site).
+* **Transaction Verification Responsibility**: You understand and agree that, before signing and broadcasting any transaction using your digital wallet, you are solely and exclusively responsible for independently verifying all transaction parameters, including but not limited to recipient addresses, token amounts, smart contract interactions, and blockchain network fees. You will not rely solely on the Site's display of transaction parameters and will perform your own thorough verification.
 
 ## 6. Fees and Operation
 
-Pumpfans.io is currently operated as a community-focused initiative. Pumpfans.io collects fees for the use of the Site or Services. Pumpfans.io reserves the right to modify fees in the future. Should any fee changes be implemented, they will be clearly and transparently disclosed to users at [https://Pumpfans.io/fees](https://pumpfans.io/fees).
+Sharkpump.io is currently operated as a community-focused initiative. Sharkpump.io collects fees for the use of the Site or Services. Sharkpump.io reserves the right to modify fees in the future. Should any fee changes be implemented, they will be clearly and transparently disclosed to users at [https://Sharkpump.io/fees](https://sharkpump.io/fees).
 
-You remain solely and exclusively responsible for paying all blockchain network fees (gas fees) associated with any transactions you choose to submit through the Site. These blockchain network fees are paid directly to the relevant blockchain network validators or miners and are entirely outside of Pumpfans.io's control or benefit. Pumpfans.io receives no portion of blockchain network fees.
+You remain solely and exclusively responsible for paying all blockchain network fees (gas fees) associated with any transactions you choose to submit through the Site. These blockchain network fees are paid directly to the relevant blockchain network validators or miners and are entirely outside of Sharkpump.io's control or benefit. Sharkpump.io receives no portion of blockchain network fees.
 
-## 7. No Warranties; Full Disclaimer of Liability -- You Assume All Risks
+## 7. No Warranties; Full Disclaimer of Liability – You Assume All Risks
 
-### 7.1 No Warranties -- Site and Services Provided "As Is"
+### 7.1 No Warranties – Site and Services Provided "As Is"
 
-THE SITE AND SERVICES, INCLUDING ALL CONTENT, SOFTWARE, TRANSACTION TEMPLATES, DATA, AND FUNCTIONALITY, ARE PROVIDED STRICTLY ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, Pumpfans.io AND ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, AND AGENTS, HEREBY EXPRESSLY DISCLAIM ALL WARRANTIES (EXPRESS, IMPLIED, OR STATUTORY) REGARDING THE SITE AND SERVICES, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACY, COMPLETENESS, RELIABILITY, SECURITY, UPTIME, OR FREEDOM FROM ERRORS, BUGS, VIRUSES, OR OTHER HARMFUL COMPONENTS. WE MAKE NO WARRANTY THAT THE SITE OR SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE, OR THAT ANY DEFECTS WILL BE CORRECTED.
+THE SITE AND SERVICES, INCLUDING ALL CONTENT, SOFTWARE, TRANSACTION TEMPLATES, DATA, AND FUNCTIONALITY, ARE PROVIDED STRICTLY ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SHARKPUMP.IO AND ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, AND AGENTS, HEREBY EXPRESSLY DISCLAIM ALL WARRANTIES (EXPRESS, IMPLIED, OR STATUTORY) REGARDING THE SITE AND SERVICES, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACY, COMPLETENESS, RELIABILITY, SECURITY, UPTIME, OR FREEDOM FROM ERRORS, BUGS, VIRUSES, OR OTHER HARMFUL COMPONENTS. WE MAKE NO WARRANTY THAT THE SITE OR SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE, OR THAT ANY DEFECTS WILL BE CORRECTED.
 
-### 7.2 Maximum Limitation of Liability -- Nominal Cap to the Extent Permitted by Law
+### 7.2 Maximum Limitation of Liability – Nominal Cap to the Extent Permitted by Law
 
-TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL Pumpfans.io, NOR ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, OR AGENTS, BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, PUNITIVE, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, LOSS OF GOODWILL, LOSS OF DATA, LOSS OF OPPORTUNITY, BUSINESS INTERRUPTION, COMPUTER FAILURE OR MALFUNCTION, OR ANY OTHER INTANGIBLE OR ECONOMIC LOSSES), ARISING OUT OF OR IN ANY WAY CONNECTED WITH THESE TERMS, THE SITE, THE SERVICES, OR YOUR USE THEREOF, OR ANY TRANSACTIONS INITIATED OR FACILITATED THROUGH THE SITE, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, PRODUCT LIABILITY, OR ANY OTHER LEGAL THEORY, EVEN IF Pumpfans.io HAS BEEN EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR LOSSES, AND REGARDLESS OF WHETHER SUCH DAMAGES OR LOSSES WERE FORESEEABLE OR REASONABLY FORESEEABLE.
+TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL SHARKPUMP.IO, NOR ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, OR AGENTS, BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, PUNITIVE, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, LOSS OF GOODWILL, LOSS OF DATA, LOSS OF OPPORTUNITY, BUSINESS INTERRUPTION, COMPUTER FAILURE OR MALFUNCTION, OR ANY OTHER INTANGIBLE OR ECONOMIC LOSSES), ARISING OUT OF OR IN ANY WAY CONNECTED WITH THESE TERMS, THE SITE, THE SERVICES, OR YOUR USE THEREOF, OR ANY TRANSACTIONS INITIATED OR FACILITATED THROUGH THE SITE, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, PRODUCT LIABILITY, OR ANY OTHER LEGAL THEORY, EVEN IF SHARKPUMP.IO HAS BEEN EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR LOSSES, AND REGARDLESS OF WHETHER SUCH DAMAGES OR LOSSES WERE FORESEEABLE OR REASONABLY FORESEEABLE.
 
 ### 7.3 Zero Liability Policy
 
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, Pumpfans.io AND ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, AND AGENTS SHALL HAVE NO LIABILITY WHATSOEVER FOR ANY CLAIMS, DAMAGES, LOSSES, OR LIABILITIES ARISING OUT OF OR IN CONNECTION WITH THESE TERMS, THE SITE, OR YOUR USE OF THE SERVICES.
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SHARKPUMP.IO AND ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, AND AGENTS SHALL HAVE NO LIABILITY WHATSOEVER FOR ANY CLAIMS, DAMAGES, LOSSES, OR LIABILITIES ARISING OUT OF OR IN CONNECTION WITH THESE TERMS, THE SITE, OR YOUR USE OF THE SERVICES.
 
-Pumpfans.io DISCLAIMS ALL RESPONSIBILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, BUSINESS OPPORTUNITIES, OR OTHER INTANGIBLE LOSSES, REGARDLESS OF THE FORM OF ACTION OR LEGAL THEORY (WHETHER IN CONTRACT, TORT, STATUTE, OR OTHERWISE), EVEN IF Pumpfans.io HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+SHARKPUMP.IO DISCLAIMS ALL RESPONSIBILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, BUSINESS OPPORTUNITIES, OR OTHER INTANGIBLE LOSSES, REGARDLESS OF THE FORM OF ACTION OR LEGAL THEORY (WHETHER IN CONTRACT, TORT, STATUTE, OR OTHERWISE), EVEN IF SHARKPUMP.IO HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-BY USING THE SITE OR SERVICES, YOU EXPRESSLY AGREE THAT YOU ASSUME ALL RISK AND THAT Pumpfans.io SHALL NOT BE HELD LIABLE FOR ANY DAMAGES OR LOSSES RESULTING FROM YOUR USE OF THE PLATFORM.
+BY USING THE SITE OR SERVICES, YOU EXPRESSLY AGREE THAT YOU ASSUME ALL RISK AND THAT SHARKPUMP.IO SHALL NOT BE HELD LIABLE FOR ANY DAMAGES OR LOSSES RESULTING FROM YOUR USE OF THE PLATFORM.
 
 ### 7.4 No Liability for Digital Asset Transactions, Blockchain Events, or User Actions
 
-Pumpfans.io explicitly disclaims any and all responsibility and liability for:
+Sharkpump.io explicitly disclaims any and all responsibility and liability for:
 
-Any blockchain transactions you submit or attempt to submit through the Site, including transaction failures, delays, errors, or losses.
+* Any blockchain transactions you submit or attempt to submit through the Site, including transaction failures, delays, errors, or losses.
+* The outcomes, success, failure, profitability, or loss of value of any digital asset you create, hold, or trade.
+* Market volatility, price fluctuations, or any financial losses incurred through trading or holding digital assets.
+* Technical failures, security breaches, vulnerabilities, or operational issues of blockchain networks, smart contracts, digital wallets, exchanges, or any third-party services you choose to utilize.
+* Network-level issues, including but not limited to blockchain forks, reorganizations, 51% attacks, or consensus failures.
+* The actions, omissions, conduct, or misrepresentations of other users of the Site or blockchain networks, including but not limited to fraudulent schemes, rug pulls, scams, or market manipulation.
+* The accuracy, completeness, or reliability of any data or information displayed on the Site, including price data, market capitalization, or other blockchain data.
 
-The outcomes, success, failure, profitability, or loss of value of any digital asset you create, hold, or trade.
+## 8. Indemnification – You Agree to Protect and Hold Us Harmless
 
-Market volatility, price fluctuations, or any financial losses incurred through trading or holding digital assets.
+You agree to indemnify, defend, and hold harmless Sharkpump.io, its affiliates, officers, directors, employees, contractors, agents, licensors, and suppliers (the "Indemnified Parties") from and against any and all claims, demands, actions, liabilities, damages, losses, judgments, awards, penalties, fines, costs, or expenses (including reasonable attorneys' fees) (collectively, "Losses"), arising directly or indirectly from: (a) your access to or use of the Site or Services; (b) your breach or violation of these Terms; (c) any transaction you initiate, conduct, or facilitate using the Site or Services; (d) any digital asset you create, hold, provide liquidity for, purchase, sell, or trade using the Site or Services; (e) your violation of any applicable law, rule, regulation, or third-party right; (f) any User Materials you submit or transmit through the Site; (g) your negligence, gross negligence, willful misconduct, or fraud; or (h) any dispute you have with any other user of the Site or any third party. You will cooperate fully in the defense of any such claim as reasonably requested by the Indemnified Parties. Sharkpump.io reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, and you shall not in any event settle any matter without Sharkpump.io's written consent.
 
-Technical failures, security breaches, vulnerabilities, or operational issues of blockchain networks, smart contracts, digital wallets, exchanges, or any third-party services you choose to utilize.
+## 9. Arbitration and Class Action Waiver – Individual Dispute Resolution Only
 
-Network-level issues, including but not limited to blockchain forks, reorganizations, 51% attacks, or consensus failures.
-
-The actions, omissions, conduct, or misrepresentations of other users of the Site or blockchain networks, including but not limited to fraudulent schemes, rug pulls, scams, or market manipulation.
-
-The accuracy, completeness, or reliability of any data or information displayed on the Site, including price data, market capitalization, or other blockchain data.
-
-## 8. Indemnification -- You Agree to Protect and Hold Us Harmless
-
-You agree to indemnify, defend, protect, and hold harmless Pumpfans.io, its affiliates, officers, directors, employees, contractors, agents, licensors, and suppliers (the "Indemnified Parties") from and against any and all claims, demands, actions, causes of action, liabilities, damages, losses, judgments, awards, penalties, fines, costs, or expenses of whatever kind (including reasonable attorneys' fees and expenses) (collectively, "Losses"), arising out of or relating to, directly or indirectly: (a) your access to or use of the Site or Services; (b) your breach or violation of any of these Terms; (c) any transaction you initiate, conduct, or facilitate using the Site or Services; (d) any digital asset you create, hold, provide liquidity for, purchase, sell, or trade using the Site or Services; (e) your violation of any applicable law, rule, regulation, or third-party right; (f) any User Materials you submit or transmit through the Site; (g) your negligence, gross negligence, willful misconduct, or fraud; or (h) any dispute you have with any other user of the Site or any third party. You will cooperate fully in the defense of any such claim as reasonably requested by the Indemnified Parties. Pumpfans.io reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, and you shall not in any event settle any matter without the written consent of Pumpfans.io.
-
-## 9. Arbitration and Class Action Waiver -- Individual Dispute Resolution Only
-
-### 9.1 Mandatory Binding Arbitration -- Exclusive Dispute Resolution Mechanism
+### 9.1 Mandatory Binding Arbitration – Exclusive Dispute Resolution Mechanism
 
 Any dispute, claim, or controversy arising out of or relating to these Terms or the Services, or the breach, termination, enforcement, interpretation, or validity thereof (collectively, "Disputes"), shall be resolved by final and binding arbitration administered by the London Court of International Arbitration (the "LCIA") in accordance with the LCIA Rules for the time being in force, which rules are deemed to be incorporated by reference into this clause. The arbitration shall be conducted by a single arbitrator mutually agreed upon by the parties, or if the parties cannot agree, appointed in accordance with the LCIA Rules. The seat and location of the arbitration shall be London, England. The language of the arbitration shall be English. The arbitrator shall be empowered to grant whatever relief would be available in a court under law or in equity. The decision of the arbitrator shall be final and binding on both parties and enforceable in any court of competent jurisdiction. "Disputes" for purposes of this Section 9 includes any dispute, claim, or controversy of any kind, whether based in contract, tort, statute, equity, or any other legal theory, and whether arising before, during, or after the termination of these Terms.
 
-### 9.2 Class Action Waiver -- You Waive Right to Class or Representative Lawsuits
+### 9.2 Class Action Waiver – You Waive Right to Class or Representative Lawsuits
 
-YOU AND Pumpfans.io HEREBY EXPRESSLY AND IRREVOCABLY WAIVE ANY AND ALL RIGHTS TO BRING, MAINTAIN, OR PARTICIPATE IN ANY CLASS ACTION, COLLECTIVE ACTION, REPRESENTATIVE ACTION, OR PRIVATE ATTORNEY GENERAL ACTION, OR CLASS-WIDE ARBITRATION, IN CONNECTION WITH ANY DISPUTE ARISING UNDER OR RELATING TO THESE TERMS, THE SITE, OR THE SERVICES. ALL CLAIMS, DEMANDS, AND CAUSES OF ACTION MUST BE BROUGHT IN YOUR INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, COLLECTIVE, OR REPRESENTATIVE PROCEEDING. THE ARBITRATOR SHALL HAVE NO POWER OR AUTHORITY TO CONDUCT CLASS ARBITRATION OR AWARD CLASS-WIDE RELIEF. YOU ACKNOWLEDGE THAT THIS CLASS ACTION WAIVER IS A MATERIAL AND ESSENTIAL PART OF THESE TERMS AND THAT YOU ARE KNOWINGLY AND VOLUNTARILY WAIVING YOUR RIGHT TO PARTICIPATE IN CLASS ACTIONS.
+YOU AND SHARKPUMP.IO HEREBY EXPRESSLY AND IRREVOCABLY WAIVE ANY AND ALL RIGHTS TO BRING, MAINTAIN, OR PARTICIPATE IN ANY CLASS ACTION, COLLECTIVE ACTION, REPRESENTATIVE ACTION, OR PRIVATE ATTORNEY GENERAL ACTION, OR CLASS-WIDE ARBITRATION, IN CONNECTION WITH ANY DISPUTE ARISING UNDER OR RELATING TO THESE TERMS, THE SITE, OR THE SERVICES. ALL CLAIMS, DEMANDS, AND CAUSES OF ACTION MUST BE BROUGHT IN YOUR INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, COLLECTIVE, OR REPRESENTATIVE PROCEEDING. THE ARBITRATOR SHALL HAVE NO POWER OR AUTHORITY TO CONDUCT CLASS ARBITRATION OR AWARD CLASS-WIDE RELIEF. YOU ACKNOWLEDGE THAT THIS CLASS ACTION WAIVER IS A MATERIAL AND ESSENTIAL PART OF THESE TERMS AND THAT YOU ARE KNOWINGLY AND VOLUNTARILY WAIVING YOUR RIGHT TO PARTICIPATE IN CLASS ACTIONS.
 
-## 10. User Conduct and Responsible Use -- Ethical and Lawful Activities Only
+## 10. User Conduct and Responsible Use – Ethical and Lawful Activities Only
 
-### 10.1 Prohibited User Conduct -- You Must Not Engage in Unlawful, Harmful, or Unethical Activities
+### 10.1 Prohibited User Conduct – You Must Not Engage in Unlawful, Harmful, or Unethical Activities
 
 You explicitly agree, represent, and warrant that you will not use the Site or any related Services in any manner that:
 
-**Violates Laws and Regulations**: Violates or encourages, facilitates, or promotes the violation of any applicable law, rule, regulation, ordinance, or governmental decree, including but not limited to securities laws, commodities laws, anti-money laundering laws, sanctions laws, export control laws, tax laws, consumer protection laws, intellectual property laws, privacy laws, or any other applicable legal requirement in any relevant jurisdiction.
+* **Violates Laws and Regulations**: Violates or promotes the violation of any applicable law, rule, regulation, or governmental decree, including but not limited to securities, commodities, anti-money laundering, sanctions, export control, tax, consumer protection, intellectual property, or privacy laws.
+* **Fraudulent, Scam, and Manipulative Activities**: Involves, promotes, or facilitates fraud, scams, deceptive practices, market manipulation, pump-and-dump schemes, rug pulls, or other unlawful or unethical financial schemes, including distributing malicious or fraudulent smart contracts or engaging in deceptive marketing.
+* **Harassment, Abuse, and Infringement of Rights**: Harasses, abuses, threatens, defames, or impersonates any person or entity, or infringes upon the legal rights of others, including intellectual property, privacy, publicity, or contractual rights.
+* **Harmful, Offensive, and Illegal Content**: Distributes, transmits, or promotes access to any content that is illegal, harmful, offensive, or objectionable, including but not limited to defamatory, obscene, pornographic, sexually explicit, discriminatory, hateful, or violent content.
+* **Unauthorized Access and Security Breaches**: Attempts to gain unauthorized access to the Site, user accounts, computer systems, networks, or data, or to circumvent any security measures or access controls.
+* **Interference with Site Functionality**: Interferes with, disrupts, damages, or impairs the proper functioning or security of the Site or Services, including transmitting viruses, malware, or engaging in denial-of-service attacks, spamming, or other disruptive activities.
+* **Automated Abuse and Excessive Usage**: Uses automated systems, bots, scrapers, or scripts to access the Site or Services in a manner that violates these Terms, exceeds reasonable usage limits, or burdens the Site's infrastructure.
+* **Misleading Statements and Misrepresentations**: Makes misleading, false, deceptive, or inaccurate statements or claims about digital assets, the Site, the Services, or Sharkpump.io.
+* **Use by Minors**: Uses the Site or Services if you are under the age of 18 (or the age of legal majority in your jurisdiction).
+* **Circumvention of Restrictions**: Attempts to circumvent, bypass, or disable any security features, access controls, geographic restrictions, IP blocking, or other protective measures implemented by Sharkpump.io.
 
-**Fraudulent, Scam, and Manipulative Activities**: Involves, promotes, facilitates, or encourages the planning, execution, or concealment of any fraud, scam, deceptive practice, market manipulation, pump-and-dump scheme, rug pull, or other unlawful or unethical financial scheme, including but not limited to the distribution or promotion of malicious or fraudulent smart contracts or digital assets, or engaging in deceptive marketing or promotional practices.
+### 10.2 Reporting Abuse – Community Responsibility for Site Integrity
 
-**Harassment, Abuse, and Infringement of Rights**: Harasses, abuses, threatens, intimidates, defames, stalks, or impersonates any other person or entity, or infringes, violates, or misappropriates the legal rights of others, including but not limited to intellectual property rights, privacy rights, publicity rights, or contractual rights.
+If you suspect or become aware of any suspicious, unethical, harmful, or unlawful activity or content on the Site, or if you believe that any user-generated content or transaction template is intended to facilitate fraud, market manipulation, or other illicit conduct, you are strongly encouraged to promptly report such activity to Sharkpump.io by emailing us at: [Abuse Reporting Email Address]. Your vigilance and responsible reporting are essential to maintaining the integrity and safety of the Site and the broader community.
 
-**Harmful, Offensive, and Illegal Content**: Distributes, transmits, promotes, or facilitates access to any content that is illegal, harmful, unethical, offensive, inappropriate, or objectionable, including but not limited to content that is defamatory, libelous, obscene, pornographic, sexually explicit, discriminatory, hateful, harassing, bullying, threatening, violent, inciteful of violence, or promotes self-harm, illegal activities, or discrimination based on race, ethnicity, religion, gender, sexual orientation, disability, or any other protected characteristic.
+### 10.3 Automated Anti-Abuse and Risk Detection Systems – Algorithmic Safety Measures
 
-**Unauthorized Access and Security Breaches**: Attempts to gain unauthorized access to the Site, user accounts, computer systems, networks, or data, or to circumvent any security measures or access controls implemented by Pumpfans.io or its service providers.
+Sharkpump.io may, but is not obligated to, employ automated systems, algorithms, and machine learning techniques to detect potentially harmful transaction patterns, suspicious user behavior, and content that may violate these Terms or pose risks to users. If these automated systems flag your activity or content, the Site may, without prior notice or liability to you, take actions including but not limited to: displaying warning messages, requiring additional verification steps, temporarily or permanently limiting your ability to use certain features, restricting or suspending your access, or removing or disabling user-generated content or transaction templates. You acknowledge and agree that these automated protective measures are implemented for general safety and risk mitigation and create no obligation on our part to monitor all user activity, prevent all harmful conduct, or guarantee the detection or prevention of all risks. We are not liable for any errors, inaccuracies, or limitations in the functionality or effectiveness of these automated systems, or for any actions taken or not taken based on their output.
 
-**Interference with Site Functionality**: Interferes with, disrupts, damages, or impairs the proper functioning or security of the Site or Services, or the servers or networks used to provide the Site and Services, including but not limited to transmitting viruses, worms, malware, Trojan horses, spyware, adware, or engaging in denial-of-service attacks, spamming, or other disruptive activities.
+### 10.4 Ethical Use Guidelines – Promoting Responsible Blockchain Interaction
 
-**Automated Abuse and Excessive Usage**: Uses any automated systems, bots, spiders, scrapers, data mining tools, or scripts to access the Site or Services, or to collect data from the Site or Services, in a manner that violates these Terms, exceeds reasonable usage limits, or places an unreasonable burden on the Site's infrastructure.
-
-**Misleading Statements and Misrepresentations**: Makes misleading, false, deceptive, or inaccurate statements, representations, or claims about digital assets, the Site, the Services, Pumpfans.io, or any related entities or individuals.
-
-**Use by Minors**: Uses the Site or Services if you are under the age of 18 (or the age of legal majority in your jurisdiction) in violation of Section 16 of these Terms.
-
-**Circumvention of Restrictions**: Attempts to circumvent, bypass, or disable any security features, access controls, geographic restrictions, IP blocking, or other protective measures implemented by Pumpfans.io or its service providers.
-
-### 10.2 Reporting Abuse -- Community Responsibility for Site Integrity
-
-If you suspect or become aware of any suspicious, unethical, harmful, or unlawful activity or content on the Site, or if you believe that any user-generated content, transaction template, or other material posted on the Site is intended to facilitate fraud, market manipulation, or other harmful or illicit conduct, you are strongly encouraged to promptly report such activity to Pumpfans.io by emailing us at: [Abuse Reporting Email Address]. Your vigilance and responsible reporting are essential to maintaining the integrity and safety of the Site and the broader community.
-
-### 10.3 Automated Anti-Abuse and Risk Detection Systems -- Algorithmic Safety Measures
-
-Pumpfans.io may, but is not obligated to, employ automated systems, algorithms, and machine learning techniques to detect potentially harmful transaction patterns, suspicious user behavior, and content that may violate these Terms or pose risks to users. If these automated systems flag your activity or content, the Site may, without prior notice or liability to you, take actions including but not limited to: displaying warning messages, requiring additional verification steps, temporarily or permanently limiting your ability to use certain features of the Site, restricting or suspending your access to the Site, or removing or disabling user-generated content or transaction templates. You acknowledge and agree that these automated protective measures are implemented for general safety and risk mitigation purposes and create no obligation on our part to monitor all user activity, prevent all harmful conduct, or guarantee the detection or prevention of all risks. We are not liable for any errors, inaccuracies, or limitations in the functionality or effectiveness of these automated systems, or for any actions taken or not taken based on their output.
-
-### 10.4 Ethical Use Guidelines -- Promoting Responsible Blockchain Interaction
-
-While Pumpfans.io is not responsible for policing user behavior, we strongly encourage all users to utilize the Site and Services in a responsible, ethical, and lawful manner, consistent with the principles of good faith and community respect. You agree to use the Site only for ethically appropriate transactions that do not exploit vulnerabilities in blockchain systems, target vulnerable or unsophisticated users, promote harmful or misleading content, or otherwise engage in activities that are inconsistent with the responsible and beneficial development and use of blockchain technology. Pumpfans.io reserves the right, but not the obligation, to decline to display transaction parameters, remove content, or restrict access for activities that, in our sole and reasonable judgment, appear to be unethical, harmful, or inconsistent with these ethical use guidelines or the spirit of responsible blockchain innovation.
-
-## 11. Experimental Technology and Technical Limitations -- Inherent Imperfections and Boundaries
-
-### 11.1 Experimental Technology -- "Beta" Service with Potential for Errors
-
-You expressly acknowledge and agree that the Site and Services are provided as an experimental, "beta" stage technology platform, and are based on rapidly evolving and inherently complex blockchain and cryptographic technologies. As such, you understand and accept that the Site and Services, and all underlying technologies, may contain errors, bugs, inaccuracies, unexpected behavior, security vulnerabilities, and limitations, despite our best efforts to provide a functional and useful tool.
-
-### 11.2 Technical Limitations -- Design Choices and Safety Measures
-
-The Site is designed as a transaction templating tool and is subject to inherent technical limitations, design choices, and safety measures, which may include but are not limited to:
-
-**Complexity Limits**: The Site may limit the complexity of transaction parameters it will assist in formatting, including but not limited to maximum token amounts, the number or complexity of smart contract interactions permitted in a single transaction, or transaction frequencies.
-
-**Rate Limiting and Usage Restrictions**: The Site may employ rate limiting, usage throttling, or other technical restrictions to prevent abuse, ensure fair access for all users, and protect the Site's infrastructure from overload or malicious attacks.
-
-**Data Display Delays and Latency**: The Site may intentionally display blockchain data with a deliberate delay or latency to prevent technical exploitation, mitigate front-running or arbitrage opportunities, and ensure data integrity and system stability.
-
-**Blockchain Network Preferences**: The Site may preferentially display transaction parameters or suggest transaction routes for certain blockchain networks or protocols that are deemed to have stronger security characteristics, greater technical reliability, or broader community adoption, based on algorithmic assessments and technical considerations. Such preferences are for technical reasons only and do not reflect any endorsements or judgments regarding specific tokens, protocols, or blockchain projects.
-
-**Device and Browser Requirements**: The Site may have specific technical requirements for user devices, operating systems, and web browsers to ensure optimal functionality, security, and compatibility. The Site may not be fully accessible or may display incorrect information or functionality on non-compliant devices, outdated software, or browsers with disabled security features.
-
-**Dynamic Risk Scoring and Warnings**: The Site may employ dynamic risk scoring algorithms to assess and display varying levels of risk warnings associated with different types of transactions, digital assets, or market conditions. These dynamic risk indicators are algorithmic approximations provided for informational purposes only and should not be construed as financial or investment advice. The absence of a risk warning does not indicate safety or imply that a transaction is without risk.
-
-**Emergency Suspension and Protective Shutdowns**: If Pumpfans.io detects technical anomalies, security threats, potential vulnerabilities, or other circumstances that, in our sole judgment, could threaten user safety, the integrity of the Site, or the stability of the Services, Pumpfans.io reserves the right to temporarily or permanently suspend operation of the Site or Services, in whole or in part, with or without prior notice to users. You acknowledge and agree that this protective measure is necessary for the security and stability of the Site and Services and creates no liability for Pumpfans.io for any transaction delays, losses, or inconvenience resulting from such suspensions or shutdowns.
-
-These technical limitations, design choices, and safety measures are implemented for legitimate purposes, including but not limited to security, stability, fairness, and risk mitigation. They do not reflect any judgment by Pumpfans.io regarding the appropriateness, legality, or profitability of specific transactions or digital assets, nor do they imply that Pumpfans.io is responsible for guaranteeing the success or safety of user transactions. We reserve the right to modify or implement further technical limitations and safety measures at any time without prior notice or liability to users.
-
-## 12. User-Generated Tokens -- Creator is Solely Responsible, No Pumpfans.io Endorsement or Liability
-
-If you choose to utilize the Site's transaction templates to create new digital assets, memecoins, or tokens:
-
-**Creator is Solely the Issuer and Responsible Party**: You explicitly acknowledge, understand, and agree that, as the user creating the digital asset or token, you are the sole and exclusive issuer, creator, and responsible party for that digital asset or token. Pumpfans.io plays no role in the issuance, creation, or management of user-generated tokens beyond providing the Site as a transaction templating tool.
-
-**No Pumpfans.io Endorsement, Verification, or Recommendation**: Pumpfans.io does not endorse, verify, audit, approve, or recommend any user-generated token, nor do we conduct any due diligence, security audits, legal reviews, or compliance checks on user-generated tokens or their underlying code, functionality, or tokenomics. The Site merely provides a tool that users may choose to utilize to create tokens, and the display of information about user-generated tokens on the Site does not constitute any form of endorsement or validation by Pumpfans.io.
-
-**Creator's Exclusive Legal and Regulatory Responsibility**: You, as the token creator, are exclusively and solely responsible for ensuring that the creation, distribution, marketing, and use of your user-generated token fully complies with all applicable laws, rules, and regulations in all relevant jurisdictions, including but not limited to securities laws, commodities laws, consumer protection laws, intellectual property laws, data privacy laws, and tax laws. This includes, without limitation, ensuring that your token is not classified as a security under applicable securities laws, or, if it is deemed to be a security, that it is properly registered or exempt from registration, and that all necessary disclosures and risk warnings are provided to potential purchasers or users of your token.
-
-**No Pumpfans.io Ownership, Profit, or Liability for User-Generated Tokens**: Pumpfans.io takes no ownership interest, equity stake, royalties, commissions from user-generated tokens. Fees we collect for providing access to transaction templating tools are purely service-based and do not constitute underwriting, promoting, facilitating, or profiting from a token sale, offering, or distribution. Pumpfans.io explicitly disclaims any and all liability, responsibility, or obligations whatsoever with respect to user-generated tokens, their functionality, security, legality, market performance, or any losses or damages arising from or related to user-generated tokens. Pumpfans.io is not a party to any agreement or transaction related to user-generated tokens and has no control over or responsibility for their operation, distribution, or use.
-
-## 13. Tax, Accounting, and Legal Disclaimer -- No Professional Advice Provided
-
-Pumpfans.io does not provide tax, accounting, or legal advice. The Site, Services, and any information provided therein are not intended to provide, and should not be construed as, tax advice, accounting advice, legal advice, investment advice, or any other form of professional advice. Any statements, information, or content provided through the Site regarding tax, accounting, or legal implications of cryptocurrency transactions, digital assets, or blockchain technology are provided for general informational and educational purposes only and should not be relied upon as a substitute for professional advice tailored to your specific circumstances. You should always consult with qualified tax, accounting, and legal professionals who are fully aware of your individual situation and circumstances before making any financial decisions or undertaking any transactions related to digital assets or blockchain technology, and to ensure full compliance with all applicable laws and regulations. Pumpfans.io makes no representations or warranties regarding the tax, accounting, or legal implications of using the Site or engaging in digital asset transactions.
-
-## 14. Restricted Jurisdictions -- Geographic Limitations
-
-Due to the complex and evolving regulatory landscape governing digital assets and blockchain technology, and the associated legal and compliance risks, we may restrict access to the Site and Services from certain geographic locations, jurisdictions, countries, or regions that Pumpfans.io has designated as "Restricted Jurisdictions." You represent and warrant that you are not located in, under the control of, or a national or resident of any of the following Restricted Jurisdictions: Cuba, Iran, North Korea, Syria, Russia or jurisdictions sanctioned by the United States of America, United Kingdom, European Union or United Nations, including but not limited to those on the sanctions lists maintained by the U.S. Office of Foreign Assets Control. Pumpfans.io reserves the right to update this List of Restricted Jurisdictions at any time and to block access to the Site from IP addresses or regions we reasonably believe are associated with Restricted Jurisdictions or users who are in violation of these restrictions.
-
-## 15. Privacy Policy -- Limited Data Collection and Use
-
-Pumpfans.io is committed to protecting your limited privacy. Please carefully review our separate Privacy Policy for detailed information about how we collect, use, disclose, and protect the limited categories of data we may collect from users of the Site. By accessing and using the Site and Services, you expressly consent to the data practices described in our Privacy Policy, which is incorporated herein by reference.
-
-## 16. No Use by Minors -- Age of Majority Requirement
-
-The Site and Services are not intended for use by, and are strictly prohibited for, individuals who are under the age of 18 years (or the age of legal majority in your jurisdiction, whichever is greater). By accessing and using the Site, you represent and warrant that you are at least 18 years of age (or the age of legal majority in your jurisdiction) and possess the legal capacity to enter into these Terms and use the Services. If we become aware or have reason to believe that you are under the age of 18 (or the age of legal majority in your jurisdiction), we reserve the right to immediately restrict or terminate your access to the Site and Services and to delete any information associated with your use to the extent permissible by applicable law.
-
-## 17. Market Volatility -- Prices Can Change Suddenly and Dramatically
-
-You understand and acknowledge that the market prices and valuations of digital assets, including memecoins and tokens, are characterized by extreme volatility and are subject to rapid, sudden, and unpredictable fluctuations, both upward and downward. Any displayed or referenced values, price data, market capitalization figures, or other market information provided on the Site can change dramatically and without warning, and may become outdated or inaccurate very quickly. We make no promises or guarantees regarding the ongoing availability, accuracy, or continuity of pricing data, and we do not undertake any obligation to monitor for or mitigate extreme price fluctuations or market volatility. Price data displayed on the Site is provided for informational purposes only and may be delayed, inaccurate, or unreliable. You must not rely on Site-displayed prices for making time-sensitive trading or investment decisions.
-
-## 18. Educational and Informational Content -- Not Professional Guidance
-
-Any guides, tutorials, blog posts, articles, FAQs, or other educational or informational content provided on the Site, whether created by Pumpfans.io or third parties, are provided solely for general informational and educational purposes to help users understand general blockchain concepts, digital asset terminology, and the basic functionality of the Site and Services. We make no warranties or representations regarding the accuracy, completeness, reliability, or timeliness of any such educational or informational content. Nothing in our educational or informational content, or any other information provided on the Site, constitutes financial advice, investment advice, legal advice, tax advice, accounting advice, or any other form of professional advice or guidance. You should always seek independent professional advice from qualified experts before making any decisions related to digital assets or blockchain technology.
-
-## 19. Inherent Technology Risks -- Blockchain Limitations and Vulnerabilities
-
-By accessing and using the Site and engaging with any blockchain network or smart contract, you expressly acknowledge and agree that you fully understand and accept the inherent and substantial technology risks associated with blockchain technology and decentralized systems. These risks include, but are not limited to: the risk of blockchain "forks," "reorganizations," "51% attacks," "double-spending" vulnerabilities, smart contract coding errors and exploits, oracle failures, consensus mechanism vulnerabilities, scalability limitations, network congestion, and other technical disruptions that may adversely affect transaction finality, data integrity, system security, and token utility. Pumpfans.io has no responsibility or obligation to support you or compensate you for any losses, damages, or confusion arising from these network-level issues, inherent limitations of blockchain technology, or the experimental nature of the underlying technologies.
-
-## 20. Reservation of Rights -- Our Discretion to Manage and Modify the Site
-
-Pumpfans.io expressly reserves the right, at any time, and in its sole and absolute discretion, to take any and all actions with respect to the Site and Services, and user access thereto, including but not limited to:
-
-**Modification, Suspension, or Discontinuation**: To modify, update, suspend, discontinue, or terminate the Site or any Services, or any feature, functionality, or portion thereof, temporarily or permanently, with or without notice to you, and without liability to you or any third party.
-
-**Amendment of Terms**: To amend, modify, revise, or update these Terms of Use at any time in our sole discretion, in accordance with Section 21 below.
-
-**Access Restrictions and User Account Management**: To deny, restrict, limit, suspend, or terminate your access to the Site or Services, or any portion thereof, for any reason or no reason, with or without prior notice or explanation, and without any liability to you. This includes the right to disable, remove, or restrict access to any user account, user-generated content, or transaction template.
-
-**Implementation of Technical Limitations**: To implement, modify, or remove technical limitations, security measures, usage restrictions, or other design choices with respect to the Site or Services, as described in Section 11.2 or elsewhere in these Terms, at any time and without notice.
-
-**General Site Management and Protection**: To take any other action that Pumpfans.io, in its sole and reasonable judgment, deems necessary or appropriate to operate, maintain, improve, modify, update, secure, or protect the Site and Services, or the rights, safety, and security of our users, ourselves, or the broader blockchain community.
-
-## 21. Modifications to These Terms -- Binding Upon Continued Use
-
-Pumpfans.io reserves the unilateral right to amend, modify, revise, or update these Terms of Use at any time, in our sole and absolute discretion, and without prior notice to you. If we make material changes to these Terms, we will make reasonable efforts to provide notice of such changes, which may include, but is not limited to, posting the updated Terms on the Site with a revised "Last Updated" date displayed at the beginning of the Terms, and/or providing notice through other means of electronic communication, such as email or website announcements. The specific form and timing of such notice shall be determined at our sole discretion.
-
-Your continued access to or use of the Site or Services after any modifications or updates to these Terms become effective constitutes your express and binding acceptance of the revised Terms in their entirety. If you do not agree to the revised Terms, you must immediately discontinue all use of the Site and Services. It is your sole responsibility to review these Terms of Use periodically for any updates or modifications. By continuing to use the Site after any changes are posted, you are signifying your acceptance of the updated Terms.
-
-## 22. General Provisions -- Standard Legal Terms and Conditions
-
-### 22.1 Governing Law and Jurisdiction
-
-Except as otherwise expressly required by mandatory applicable law, these Terms and any Disputes arising hereunder shall be governed by and construed in accordance with the laws of England and Wales, without regard to its conflict of laws principles. The exclusive forum for resolving any Disputes that are not subject to mandatory binding arbitration as set forth in Section 9 shall be the courts of England and Wales. You hereby irrevocably consent to the personal jurisdiction of such courts and waive any objection to the propriety or convenience of venue in such courts.
-
-### 22.2 Entire Agreement
-
-These Terms, together with the Privacy Policy https://Pumpfans.io/privacy-policy, Fees document https://Pumpfans.io/fees and any other documents expressly incorporated herein by reference, constitute the entire and exclusive agreement between you and Pumpfans.io regarding your use of the Site and Services and supersede all prior or contemporaneous oral or written communications, representations, understandings, and agreements between you and us relating to the subject matter hereof.
-
-### 22.3 Severability
-
-If any provision of these Terms is held by a court of competent jurisdiction to be invalid, illegal, or unenforceable for any reason, such provision shall be modified to the minimum extent necessary to make it valid, legal, and enforceable, consistent with the original intent of the parties, and the remaining provisions of these Terms shall continue in full force and effect to the maximum extent permitted by law.
-
-### 22.4 No Waiver
-
-No waiver by Pumpfans.io of any term or condition set forth in these Terms shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition, and any failure by Pumpfans.io to assert a right or provision under these Terms shall not constitute a waiver of such right or provision.
-
-### 22.5 Force Majeure
-
-Pumpfans.io shall not be liable or responsible, nor be deemed to have defaulted under or breached these Terms, for any failure to perform or delay in performance of its obligations under these Terms to the extent that such failure or delay is caused by or results from acts or events beyond our reasonable control, including, without limitation: (a) acts of God; (b) flood, fire, earthquake, pandemics, epidemics, or other natural disasters; (c) war, terrorism, riots, civil unrest, insurrection, or revolution; (d) labor disputes, strikes, lockouts, or other industrial disturbances; (e) action by any governmental authority, including changes in laws or regulations; (f) embargoes, import or export restrictions, or sanctions; (g) blockchain network congestion or failures; (h) power outages, internet or communication disruptions, or failure of essential utilities or services; (i) cyberattacks, hacking, malware, or security breaches; or (j) other similar causes beyond our reasonable control (collectively, "Force Majeure Events").
-
-### 22.6 Assignment
-
-You may not assign or transfer these Terms, or your rights or obligations hereunder, in whole or in part, by operation of law or otherwise, without the prior express written consent of Pumpfans.io, which consent may be withheld in Pumpfans.io's sole discretion. Pumpfans.io may assign or transfer these Terms, in whole or in part, without your consent, including but not limited to in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially all of our assets or business. Subject to the foregoing, these Terms shall be binding upon and inure to the benefit of the parties hereto and their respective successors and permitted assigns.
-
-### 22.7 No Agency or Partnership
-
-Nothing in these Terms shall be construed to create any agency, partnership, joint venture, employment, or fiduciary relationship between you and Pumpfans.io, and neither party shall have any right or authority to act on behalf of or bind the other party in any respect.
-
-### 22.8 Headings for Convenience Only
-
-The section headings and subheadings in these Terms are included for convenience and ease of reference only and shall not be considered part of these Terms or used in the interpretation or construction of any provision hereof.
-
-### 22.9 Language
-
-These Terms are drafted in the English language. To the extent that these Terms are translated into any other language, such translation is provided solely for your convenience and informational purposes. In the event of any inconsistency, ambiguity, or conflict between the English language version of these Terms and any version translated into another language, the English language version shall govern and prevail in all respects.
-
-### 22.10 Contact Us:
-
-For questions, feedback, or inquiries regarding these Terms of Use or the Services, please contact us via our designated support channels, which may be communicated on the Site from time to time.
-`;
+While Sharkpump.io is not responsible for policing user behavior, we strongly encourage all users to utilize the Site and Services in a responsible, ethical, and lawful manner, consistent with the principles of good faith and community respect. You agree to use the Site only for ethically appropriate transactions that do not exploit vulnerabilities in blockchain systems, target vulnerable or unsophisticated users, promote harmful or misleading content, or otherwise engage in activities inconsistent with the responsible and beneficial development and use of blockchain technology.`;
 </script>
 
 <template>
-    <AppLayout>
-        <div class="min-h-screen bg-gray900">
-            <div class="max-w-6xl mx-auto px-4 py-8">
-                <div class="prose markdown-content dark:prose-invert text-white max-w-none">
-                    <Markdown
-                        class="gap-3"
-                        :source="terms"
-                    />
-                </div>
-            </div>
-        </div>
-    </AppLayout>
+	<AppLayout>
+		<div class="min-h-screen bg-gray900">
+			<div class="max-w-6xl mx-auto px-4 py-8">
+				<div
+					class="prose markdown-content dark:prose-invert text-white max-w-none"
+				>
+					<Markdown class="gap-3" :source="terms" />
+				</div>
+			</div>
+		</div>
+	</AppLayout>
 </template>

@@ -1,109 +1,105 @@
 <script setup>
-import Markdown from 'vue3-markdown-it'; /* PartiallyEnd: #3632/scriptSetup.vue */
+import Markdown from "vue3-markdown-it"; /* PartiallyEnd: #3632/scriptSetup.vue */
 
-import AppLayout from '@/Layouts/AppLayout.vue';
+import AppLayout from "@/Layouts/AppLayout.vue";
 const terms = `
-# Privacy Notice
+# Privacy Policy
 
 **Last Updated: February 1st, 2025**
 
-Pumpfans.io ("we," "us," or "our") is committed to protecting the limited privacy of our users. This Privacy Policy outlines how we collect, use, and protect the limited information we obtain when you use our website, pump.tires (the "Site"), and related services (the "Services"). Please read this Privacy Policy carefully.
+At Sharkpump.io ("we," "us," "our"), a non-custodial platform, we are deeply committed to safeguarding the limited privacy of our users. This Privacy Policy details how we collect, use, and protect the minimal information obtained when you interact with our website, pump.tires (the "Site"), and associated services (the "Services"). Please review this policy carefully.
 
 ## Limited Information Collection
 
-As Pumpfans.io is a non-custodial, transaction templating system, we intentionally minimize the collection of user data. The types of information we may collect are limited to:
+As a non-custodial transaction templating system, Sharkpump.io intentionally minimizes user data collection. The information we may gather is strictly limited to:
 
 ### Non-Identifying Usage Data
-We may automatically collect certain non-personally identifiable information about your use of the Site, such as:
 
-- Browser type and version
-- Operating system
-- Device type
-- IP address (anonymized or truncated to remove personally identifiable information)
-- Referring website
-- Pages visited on the Site
-- Date and time of access
-- Site usage patterns and analytics data (aggregated and anonymized)
-- Error logs and technical diagnostics
+We automatically collect limited non-personally identifiable usage data, including:
+
+* Browser and operating system details
+* Device type
+* Anonymized or truncated IP address
+* Referring website
+* Pages viewed, date, and time of access
+* Aggregated and anonymized site usage patterns
+* Technical error logs
 
 ### Voluntary Communications Data
-We may collect limited personal information if you voluntarily provide it to us, such as:
 
-- Your email address if you contact us for support, feedback, or inquiries.
-- Any information you choose to include in your communications with us.
+Should you choose to contact us for support, feedback, or inquiries, we may collect voluntarily provided communication data, such as your email address and any information you include in your message.
 
-We do not collect Know Your Customer (KYC) information, names, addresses, phone numbers, financial details, or any other sensitive personal data unless you explicitly and voluntarily provide it to us for a specific purpose (e.g., support requests). We do not track your blockchain wallet addresses or transaction history on the blockchain.
+**We do not collect Know Your Customer (KYC) information, names, addresses, phone numbers, financial details, or other sensitive personal data unless explicitly and voluntarily provided for a specific purpose (e.g., support requests). We do not track your blockchain wallet addresses or transaction history on the blockchain.**
 
 ## Use of Information
 
-The limited information we collect is used solely for the following purposes:
+The minimal information we collect is used exclusively for these purposes:
 
-1. **Site Operation and Maintenance**: To operate, maintain, secure, and improve the Site and Services, and to ensure their proper functionality.
-2. **Technical Support and Customer Service**: To respond to your inquiries, provide technical support, and address your requests or feedback, if you contact us directly.
-3. **Site Analytics and Improvement**: To analyze Site usage trends, monitor performance, diagnose technical issues, and improve the user experience through aggregated and anonymized data analysis.
-4. **Security and Abuse Prevention**: To detect, prevent, and investigate potential security breaches, fraud, abuse, or violations of our Terms of Use, and to ensure the security and integrity of the Site and Services.
-5. **Legal Compliance**: To comply with applicable laws, regulations, legal processes, or enforceable governmental requests, if required.
+1.  **Operating & Improving the Site:** To ensure the proper functionality, security, and continuous improvement of our Site and Services.
+2.  **Providing Support:** To respond to your direct inquiries, offer technical assistance, and address your feedback.
+3.  **Analyzing Site Performance:** To monitor usage trends, diagnose issues, and enhance the user experience through aggregated, anonymized data.
+4.  **Ensuring Security:** To detect, prevent, and investigate security breaches, fraud, abuse, or violations of our Terms of Use, thereby maintaining the integrity of our Services.
+5.  **Meeting Legal Obligations:** To comply with applicable laws, regulations, legal processes, or government requests when necessary.
 
 ## No Sharing of Personal Information (Except Limited Circumstances)
 
-Pumpfans.io is committed to protecting your limited personal information and will not sell, rent, trade, or otherwise disclose your personal information to third parties for marketing or advertising purposes.
+Sharkpump.io is committed to safeguarding your limited personal information and will **never sell, rent, trade, or disclose it to third parties for marketing or advertising purposes.**
 
-We may share your limited information with third-party service providers only to the extent necessary to assist us in operating the Site, providing the Services, and fulfilling the purposes described in Section 2 above. These service providers may include:
+We may share your limited information with trusted third-party service providers only when essential for operating the Site, delivering our Services, and achieving the purposes outlined in Section 2. These providers include (but are not limited to):
 
-- Website hosting providers
-- Analytics and site usage tracking services
-- Security and fraud prevention service providers
-- Email communication and support platforms
+* Website hosting and infrastructure providers
+* Analytics and site usage tracking services
+* Security and fraud prevention services
+* Email communication and support platforms
 
-These third-party service providers are contractually obligated to protect your information and are prohibited from using your information for their own marketing or other purposes.
+These service providers are strictly obligated by contract to protect your information and are prohibited from using it for their own marketing or other purposes.
 
-We may also disclose your information if required to do so by law, court order, or other legal process, or if we believe in good faith that disclosure is necessary to protect our rights, property, or safety, or the rights, property, or safety of others.
+Information may also be disclosed if legally required by law, court order, or similar process, or if we genuinely believe such disclosure is necessary to protect our rights, property, or safety, or the rights, property, or safety of others.
 
 ## Data Security
 
-We implement reasonable and appropriate security measures to protect the limited information we collect from unauthorized access, use, disclosure, alteration, or destruction. These measures include technical, administrative, and physical safeguards designed to protect data security and confidentiality. However, no security system is impenetrable, and we cannot guarantee the absolute security of your information.
+We employ reasonable and appropriate security measures—including technical, administrative, and physical safeguards—to protect the limited information we collect from unauthorized access, use, disclosure, alteration, or destruction. While we strive for robust protection, no security system is entirely impenetrable, and absolute data security cannot be guaranteed.
 
 ## Data Retention
 
-We will retain the limited information we collect only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, or as required by applicable law. Aggregated and anonymized data may be retained for longer periods for analytical and statistical purposes.
+We retain the limited information we collect only for as long as necessary to fulfill the purposes described in this Privacy Policy or as required by applicable law. Aggregated and anonymized data may be kept for longer periods for analytical and statistical insights.
 
 ## "Do Not Track" Signals
 
-Pumpfans.io does not currently respond to "Do Not Track" signals or other mechanisms that provide users with choices regarding the collection of personal information about their online activities over time and across different websites or online services.
+Sharkpump.io currently does not respond to "Do Not Track" signals or similar mechanisms that offer users choices regarding the collection of personal information across different online services over time.
 
 ## Children's Privacy
 
-Pumpfans.io is not intended for use by children under the age of 18. We do not knowingly collect personal information from children under 18. If we become aware that we have collected personal information from a child under 18, we will take steps to delete such information as soon as possible to the extent permissible by law.
+Sharkpump.io is not intended for users under 18 years of age. We do not knowingly collect personal information from children under 18. If we discover that such information has been collected, we will promptly take steps to delete it, to the extent permissible by law.
 
 ## International Data Transfers
 
-Your information may be processed and stored in servers and locations outside of your country of residence, which may have different data protection laws than your jurisdiction. By using the Site and Services, you consent to the transfer of your information to and processing of your information in such locations.
+Your information may be processed and stored on servers located outside your country of residence, which may have different data protection laws. By using our Site and Services, you consent to the transfer and processing of your information in these locations.
 
 ## Links to Third-Party Websites
 
-The Site may contain links to third-party websites or services that are not owned or controlled by Pumpfans.io. This Privacy Policy does not apply to those third-party websites or services. We encourage you to review the privacy policies of any third-party websites or services you visit.
+Our Site may include links to third-party websites or services not owned or controlled by Sharkpump.io. This Privacy Policy does not extend to those external sites or services. We advise you to review the privacy policies of any third-party sites you visit.
 
 ## Updates to this Privacy Policy
 
-Pumpfans.io reserves the right to modify or update this Privacy Policy at any time, in our sole discretion. If we make material changes to this Privacy Policy, we will provide reasonable notice of such changes, such as by posting the updated Privacy Policy on the Site with a new "Last Updated" date. Your continued use of the Site and Services after any changes become effective constitutes your acceptance of the revised Privacy Policy.
+Sharkpump.io reserves the right to modify or update this Privacy Policy at our sole discretion at any time. For material changes, we will provide reasonable notice, such as by posting the updated policy on the Site with a revised "Last Updated" date. Your continued use of the Site and Services after such changes signifies your acceptance of the revised Privacy Policy.
 
 ## Contact Us
 
-If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us via our designated support channels, which may be communicated on the Site from time to time.
+For any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us through our designated support channels, as communicated on the Site..
 `;
 </script>
 
 <template>
-    <AppLayout>
-        <div class="min-h-screen bg-gray900">
-            <div class="max-w-6xl mx-auto px-4 py-8">
-                <div class="prose markdown-content dark:prose-invert text-white max-w-none">
-                    <Markdown
-                        class="gap-3"
-                        :source="terms"
-                    />
-                </div>
-            </div>
-        </div>
-    </AppLayout>
+	<AppLayout>
+		<div class="min-h-screen bg-gray900">
+			<div class="max-w-6xl mx-auto px-4 py-8">
+				<div
+					class="prose markdown-content dark:prose-invert text-white max-w-none"
+				>
+					<Markdown class="gap-3" :source="terms" />
+				</div>
+			</div>
+		</div>
+	</AppLayout>
 </template>

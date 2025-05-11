@@ -1,78 +1,61 @@
 <script setup>
-import Markdown from 'vue3-markdown-it'; /* PartiallyEnd: #3632/scriptSetup.vue */
+import Markdown from "vue3-markdown-it"; /* PartiallyEnd: #3632/scriptSetup.vue */
 
-import AppLayout from '@/Layouts/AppLayout.vue';
-const terms = `# PumpFans.io Fee Structure
+import AppLayout from "@/Layouts/AppLayout.vue";
+const terms = `# Fee Structure
 
 ## Overview
 
-PumpFans.io implements a transparent fee structure designed to maintain platform sustainability while offering competitive rates for users. This document outlines all fees associated with using our platform.
+At Sharkpump.io, our transparent fee structure is designed for platform sustainability and offers competitive rates. This document details all fees associated with using our platform.
 
 ## Deployment Fees
 
-When launching a new token or project on PumpFans.io, the following deployment fees apply:
-
-- **Base Deployment Fee**: 0.006 BNB
-- **Fee Variation**: Depends on the blockchain network selected
-  
-The deployment fee covers the cost of smart contract deployment, initial setup, and integration with the PumpFans.io ecosystem.
+Launching a new token or project on Sharkpump.io incurs a **Base Deployment Fee of 0.006 BNB**. The final cost may vary based on the chosen blockchain network. This fee covers smart contract deployment, initial setup, and integration within the Sharkpump.io ecosystem.
 
 ## Trading Fees
 
 ### Bonding Curve Trades
 
-When trading on our proprietary bonding curve mechanism:
-
-- **Buy Trades**: 0.75% fee on the total transaction value
-- **Sell Trades**: 0.75% fee on the total transaction value
-
-This fee structure encourages holding and strategic trading while providing necessary resources for platform maintenance and development.
+For trades executed via our proprietary bonding curve mechanism, a uniform **0.75% fee** is applied to both buy and sell transactions on the total value. This structure aims to incentivize holding and strategic trading, while also funding ongoing platform maintenance and development.
 
 ## Liquidity Migration
 
-When liquidity is migrated to external decentralized exchanges (specifically Uniswap):
-
-- **Uniswap Swap Fee**: 0.3% per swap
-  - These fees are charged by Uniswap as per their standard protocol
-  - **Important**: These Uniswap fees can be claimed by the project developer
+When liquidity is migrated to external decentralized exchanges, such as Uniswap, standard Uniswap swap fees of **0.3% per swap** apply. These fees are charged by Uniswap as per their protocol. It's important to note that **project developers can claim these Uniswap-charged fees.**
 
 ## Liquidity Providers (LP) Tokens Lockup
 
-- **Lockup Period**: 10 years
-- After the 10-year lockup period, the Liquidity Providers (LP) Tokens will be unlocked
-- This long-term lockup ensures project stability and demonstrates our commitment to sustainable tokenomics
+To ensure project stability and demonstrate our commitment to sustainable tokenomics, Liquidity Provider (LP) Tokens are subject to a **10-year lockup period**. Following this period, the LP Tokens will be unlocked.
 
 ## Fee Allocation
 
-All platform fees collected by PumpFans.io are allocated as follows:
+Fees collected by Sharkpump.io are strategically allocated to:
 
-- Platform development and maintenance
-- Security audits and improvements
-- User experience enhancements
-- Community growth initiatives
+* Fund platform development and ongoing maintenance
+* Conduct security audits and implement improvements
+* Enhance the overall user experience
+* Support community growth initiatives
 
 ## Fee Adjustments
 
-PumpFans.io reserves the right to adjust the fee structure in response to market conditions, network fee fluctuations, or protocol upgrades. Any changes to the fee structure will be communicated to users with appropriate notice.
+Sharkpump.io reserves the right to modify its fee structure in response to evolving market conditions, network fee fluctuations, or protocol upgrades. Users will be notified of any such changes with appropriate advance notice.
 
 ---
 
 *Last Updated: March 25, 2025*
 
-For additional questions regarding our fee structure, please contact our support team through the official channels listed on our website.`;
+For further inquiries about our fee structure, please contact our support team via the official channels on our website.`;
 </script>
 
 <template>
-    <AppLayout>
-        <div class="min-h-screen bg-gray900">
-            <div class="max-w-6xl mx-auto px-4 py-8">
-                <div class="prose markdown-content dark:prose-invert text-white max-w-none">
-                    <Markdown
-                        class="gap-3"
-                        :source="terms"
-                    />
-                </div>
-            </div>
-        </div>
-    </AppLayout>
+	<AppLayout>
+		<div class="min-h-screen bg-gray900">
+			<div class="max-w-6xl mx-auto px-4 py-8">
+				<div
+					class="prose markdown-content dark:prose-invert text-white max-w-none"
+				>
+					<Markdown class="gap-3" :source="terms" />
+				</div>
+			</div>
+		</div>
+	</AppLayout>
 </template>

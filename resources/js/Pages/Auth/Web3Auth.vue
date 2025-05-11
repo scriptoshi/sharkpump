@@ -3,6 +3,7 @@ import { computed, ref, watch } from "vue";
 
 import { router, usePage } from "@inertiajs/vue3";
 import { createAppKit, useAppKit } from "@reown/appkit/vue";
+import { useLocalStorage } from "@vueuse/core";
 import { useAccount, useDisconnect, useSignMessage } from "@wagmi/vue";
 import axios from "axios";
 import { Power } from "lucide-vue-next";
@@ -60,6 +61,7 @@ const { address, isConnected } = useAccount();
 
 const { disconnect } = useDisconnect();
 const { signMessageAsync } = useSignMessage();
+const modalShown = useLocalStorage("modalShown", false);
 
 const handleVerify = async () => {
     try {
@@ -83,6 +85,7 @@ const handleVerify = async () => {
                 preserveScroll: true,
                 onFinish() {
                     showSignatureModal.value = false;
+                    modalShown.value = false;
                 }
             }
         );
@@ -116,8 +119,9 @@ const signIn = async () => {
 
 
 const openSignatureModal = () => {
-    if (authCheck.value || isSigningOut.value) return;
+    if (authCheck.value || isSigningOut.value || modalShown.value) return;
     showSignatureModal.value = true;
+    modalShown.value = true;
 };
 
 
