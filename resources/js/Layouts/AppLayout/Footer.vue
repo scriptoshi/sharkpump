@@ -26,10 +26,10 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 						<ul class="space-y-4">
 							<li>
 								<Link
-									href="/"
+									href="/prebond-mechanism"
 									class="text-sm font-semibold hover:text-primary transition-colors"
 								>
-									{{ $t("Explore") }}
+									{{ $t("Prebond Mechanism") }}
 								</Link>
 							</li>
 							<li>

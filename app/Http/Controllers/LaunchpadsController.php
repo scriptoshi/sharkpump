@@ -457,7 +457,7 @@ class LaunchpadsController extends Controller
                 ->get();
             $first = $trades->first();
             $last = $trades->last();
-            if ($trades->count() >= 2) {
+            if ($trades->count() >= 2 && $first->price > 0) {
                 $priceChange = bcdiv(bcsub($last->price, $first->price, 18), $first->price, 18) * 100;
             } else {
                 $priceChange = 0;
