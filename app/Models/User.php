@@ -4,11 +4,13 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Enums\NftType;
 use App\Traits\HasProfilePhoto;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -152,5 +154,41 @@ class User extends Authenticatable
     public function holders(): HasMany
     {
         return $this->hasMany(Holder::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get the nfts this model has minted
+     */
+    public function nfts(): BelongsToMany
+    {
+        return $this->belongsToMany(Nft::class, 'nft_user', 'user_id', 'nft_id')
+            ->withPivot('balance');
+    }
+
+    /**
+     * Get nft level
+     */
+    public function nft(): ?NftType
+    {
+        $nfts = $this->nfts()->wherePivot('balance', '>', 0)->pluck('type');
+        if ($nfts->contains(NftType::WHALE->value)) {
+            return NftType::WHALE;
+        }
+        if ($nfts->contains(NftType::SHARK->value)) {
+            return NftType::SHARK;
+        }
+        if ($nfts->contains(NftType::BARRACUDA->value)) {
+            return NftType::BARRACUDA;
+        }
+        if ($nfts->contains(NftType::PIRANHA->value)) {
+            return NftType::PIRANHA;
+        }
+        if ($nfts->contains(NftType::FISH->value)) {
+            return NftType::FISH;
+        }
+        if ($nfts->contains(NftType::PLANKTON->value)) {
+            return NftType::PLANKTON;
+        }
+        return null;
     }
 }

@@ -122,21 +122,21 @@ const setActiveBot = (bot) => {
 					</div>
 				</div>
 				<tmeplate v-if="launchpad.bots.length == 0">
-					<h3 class="my-4 text-lg">No Telegram AI Agents Connected</h3>
+					<h3 class="my-4 text-lg">No Meme Tokens Connected</h3>
 					<BaseButton
 						v-if="launchpad.isOwner"
 						url
 						target="_blank"
 						:href="`https://agentic.sharkpump.io/${launchpad.contract}/dashboard`"
 					>
-						Manage / Create Agents
+						Spawns Meme
 						<VueIcon :icon="BiArrowRightShort" />
 					</BaseButton>
 				</tmeplate>
 				<template v-else>
 					<h3 class="my-4 text-lg">
 						{{ launchpad.symbol }} is connected to
-						{{ launchpad.bots.length }} Telegram AI Agents
+						{{ launchpad.bots.length }} Meme Tokens
 					</h3>
 					<div class="flex gap-2 h-fit text-sm">
 						<BaseButton
@@ -159,13 +159,13 @@ const setActiveBot = (bot) => {
 					<div v-if="activeTab == 'bot'">
 						<Agent :launchpad="launchpad" :bot="activeBot" />
 						<div v-if="launchpad.isOwner" class="mt-4">
-							<h3 class="my-4 text-lg">Agents Admin Dashboard</h3>
+							<h3 class="my-4 text-lg">Spawns Admin Dashboard</h3>
 							<BaseButton
 								url
 								target="_blank"
 								:href="`https://agentic.sharkpump.io/${launchpad.contract}/dashboard`"
 							>
-								Manage / Create Agents
+								Spawn memes
 								<VueIcon :icon="BiArrowRightShort" />
 							</BaseButton>
 						</div>

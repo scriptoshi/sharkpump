@@ -18,7 +18,11 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 						</Link>
 
 						<p class="text-sm font-semibold">
-							{{ $t("State of the art No code Telegram Agentic Bots.") }}
+							{{
+								$t(
+									"Swim with the Sharks, Launch with the Best. Make Waves, Not Ripples"
+								)
+							}}
 						</p>
 					</div>
 					<!-- Explore Column -->

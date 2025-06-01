@@ -75,7 +75,7 @@ const deploy = async () => {
 };
 </script>
 <template>
-	<Head :title="`New Launchpad`" />
+	<Head :title="`New Spawnpad`" />
 	<AppLayout>
 		<div
 			class="card max-w-3xl w-full mb-6 mx-auto dark:bg-gray-850 sm:p-12 sm:!pt-6 h-full border-0 card-border"
@@ -83,7 +83,7 @@ const deploy = async () => {
 			<div class="card-body card-gutterless h-full">
 				<h3 class="mb-3 flex items-center gap-2">
 					<ComponentIcon class="w-7 h-7 stroke-[0.7] text-sky-400" />
-					{{ $t("Launch Telegram AI Agent") }}
+					{{ $t("Spawn Meme Token") }}
 				</h3>
 				<div class="grid gap-6">
 					<div class="border p-3 border-gray-650 bg-gray-750/50">
@@ -214,7 +214,7 @@ const deploy = async () => {
 									v-if="state.busy || form.processing"
 								/>
 								<span>
-									{{ $t("Deploy Launchpad") }}
+									{{ $t("Deploy Spawnpad") }}
 									{{ feesFormatted }}
 								</span>
 								<ChainSymbol class="ml-1" :chain-id="chainId" />

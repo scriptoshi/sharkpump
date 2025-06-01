@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LaunchpadsController;
 use App\Http\Controllers\MsgsController;
+use App\Http\Controllers\NftsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\S3Controller;
 use App\Http\Controllers\TradesController;
@@ -71,3 +72,7 @@ Route::name('trades.')->controller(TradesController::class)->group(function () {
     Route::get('/leaderboard/{type?}/{period?}', 'leaderboard')->name('leaderboard');
 });
 #trades
+
+#nfts
+Route::get('/verification', [NftsController::class, 'kyc'])->name('nfts.kyc');
+Route::post('/nft/{nft:contract}/verify', [NftsController::class, 'verify'])->name('nfts.verify');

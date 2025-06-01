@@ -99,7 +99,7 @@ export default {
         "Launch a new token": "Launch a new token",
         "Launch Telegram Agent": "Launch Telegram Agent",
         "Launch Tg Agent": "Launch Tg Agent",
-        "Launch your ai agent": "Launch your ai agent",
+        "Launch your Meme": "Launch your Meme",
         "Launched": "Launched",
         "Launchpad Finalized": "Launchpad Finalized",
         "Launchpad Id": "Launchpad Id",

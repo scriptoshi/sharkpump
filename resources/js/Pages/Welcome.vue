@@ -113,11 +113,11 @@ const tableMode = useLocalStorage("tableMode", false);
 						v-if="launchpadsInfo.loading.value"
 						class="w-6 h-6 mr-2 animate-spin"
 					/>
-					{{ $t("My Launchpads") }}
+					{{ $t("My Spawnpads") }}
 				</h3>
 				<div class="flex items-center mt-4 gap-4">
 					<BaseButton link href="/launch" outlined>
-						{{ $t("Launch a new token") }}
+						{{ $t("Spawn a new meme") }}
 					</BaseButton>
 				</div>
 			</div>
@@ -127,14 +127,10 @@ const tableMode = useLocalStorage("tableMode", false);
 				>
 					<div class="flex flex-col justify-center items-center sm:items-start">
 						<h3 class="text-xl font-extralight">
-							{{ $t("Create no code Agentic Telegram crypto bots") }}
+							{{ $t("Shark week - Every week") }}
 						</h3>
 						<h3>
-							{{
-								$t(
-									"Trading agents, crypto signals, travel agents, and more!"
-								)
-							}}
+							{{ $t("Where the Big Fish Swim") }}
 						</h3>
 						<div class="flex items-center mt-4 gap-4">
 							<BaseButton
@@ -145,7 +141,7 @@ const tableMode = useLocalStorage("tableMode", false);
 								{{ $t("How Does it work") }}
 							</BaseButton>
 							<BaseButton link href="/launch" outlined>
-								{{ $t("Launch your ai agent") }}
+								{{ $t("Spawn your Meme") }}
 							</BaseButton>
 						</div>
 					</div>

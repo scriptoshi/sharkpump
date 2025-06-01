@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\LaunchpadStatus;
+use App\Enums\NftType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -36,6 +37,7 @@ class Launchpad extends Model
     {
         return [
             'status' => LaunchpadStatus::class,
+            'nft_type' => NftType::class,
             'featured' => 'boolean',
             'kingofthehill' => 'boolean',
             'active' => 'boolean'
@@ -56,6 +58,7 @@ class Launchpad extends Model
         'graph',
         'name',
         'symbol',
+        'nft_type',
         'description',
         'chainId',
         'twitter',

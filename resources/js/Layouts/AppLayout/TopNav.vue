@@ -94,7 +94,7 @@ const showHowItworks = ref(false);
 
 					<!-- Action Buttons -->
 					<PrimaryButton link href="/launch" size="xs" class="mr-2">
-						{{ $t("Launch Ai Agent") }}
+						{{ $t("Spawn Meme") }}
 					</PrimaryButton>
 					<Web3Auth />
 					<AuthLink />
@@ -152,7 +152,7 @@ const showHowItworks = ref(false);
 						'bg-gray-900 text-primary': $page.url.startsWith('/my-tokens'),
 					}"
 				>
-					{{ $t("My Agents") }}
+					{{ $t("My Spawns") }}
 				</Link>
 				<button
 					@click="showHowItworks = !showHowItworks"
@@ -184,7 +184,7 @@ const showHowItworks = ref(false);
 							href="/launch"
 							class="w-full justify-center"
 						>
-							{{ $t("Launch Telegram Agent") }}
+							{{ $t("Spawn Meme") }}
 						</PrimaryButton>
 
 						<!-- Action Buttons -->

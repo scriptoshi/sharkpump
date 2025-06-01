@@ -295,6 +295,7 @@ class LaunchpadsController extends Controller
             'logo_upload' => ['required', 'boolean'],
             'logo_path' => ['nullable', 'required_if:logo_upload,true'],
         ]);
+
         $launchpad = new Launchpad;
         $launchpad->user_id = $request->user()->id;
         $launchpad->factory_id = $request->factory_id;
@@ -308,6 +309,7 @@ class LaunchpadsController extends Controller
         $launchpad->discord = $request->discord;
         $launchpad->telegram = $request->telegram;
         $launchpad->website = $request->website;
+        $launchpad->nft_type = $request->user()->nft();
         $launchpad->status = LaunchpadStatus::PREBOND;
         $launchpad->save();
         $upload = app(Uploads::class)->upload($request,  $launchpad, 'logo');

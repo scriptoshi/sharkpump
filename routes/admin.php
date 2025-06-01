@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\FactoriesController;
 use App\Http\Controllers\Admin\HoldersController;
 use App\Http\Controllers\Admin\LaunchpadsController;
 use App\Http\Controllers\Admin\MsgsController;
+use App\Http\Controllers\Admin\NftsController;
 use App\Http\Controllers\Admin\PromosController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\TradesController;
@@ -90,3 +91,18 @@ Route::name('promos.')->controller(PromosController::class)->group(function () {
     Route::delete('/promos/{promo}', 'destroy')->middleware(DemoMode::class)->name('destroy');
 });
 #promos
+
+
+#nfts
+Route::name('nfts.')->controller(NftsController::class)->group(function () {
+    Route::get('/nfts', 'index')->name('index');
+    Route::get('/nfts/create', 'create')->name('create');
+    Route::post('/nfts/store', 'store')->name('store');
+    Route::get('/nft/{nft:contract}', 'edit')->name('edit');
+    Route::get('/metadata/{nft:contract}', 'metadata')->name('metadata');
+    Route::put('/metadata/{nft}/update', 'updateMetadata')->name('metadata.update');
+    Route::put('/nfts/{nft}', 'update')->name('update');
+    Route::put('/nfts/toggle/{nft}', 'toggle')->name('toggle');
+    Route::delete('/nfts/{nft}', 'destroy')->name('destroy');
+});
+#nft

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Launchpad;
 use App\Models\Holder;
+use App\Models\Nft;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -91,6 +92,48 @@ class TokenHolderService
     }
 
     /**
+     * Update holders for all active launchpads
+     */
+    public function updateAllNftHolders()
+    {
+        try {
+            $nfts = Nft::query()
+                ->whereNotNull('contract')
+                ->get();
+            foreach ($nfts as $nft) {
+                $this->updateNftHolders($nft);
+            }
+        } catch (Exception $e) {
+            Log::error('Failed to update all holders: ' . $e->getMessage());
+        }
+    }
+
+    public function updateNftHolders(Nft $nft)
+    {
+        try {
+            $response = $this->fetchNftHolders($nft->contract, $nft->chainId);
+            if (!isset($response['holders'])) {
+                Log::error("Invalid response for NFT holders {$nft->contract}");
+                return;
+            }
+            // Convert all holder addresses to lowercase
+            $holders = array_map('strtolower', $response['holders']);
+            // Update users where address matches (case-insensitive)
+            User::query()
+                ->whereNull('verified_address')
+                ->where(function ($query) use ($holders) {
+                    $query->whereRaw('LOWER(address) IN (?)', [array_values($holders)])
+                        ->orWhereIn('address', $holders);
+                })
+                ->update([
+                    'verified_address' => true
+                ]);
+        } catch (Exception $e) {
+            Log::error("Failed to update holders for NFT {$nft->id}: " . $e->getMessage());
+        }
+    }
+
+    /**
      * Fetch holders from Ankr API
      */
     protected function fetchHolders(string $tokenAddress, string $chainId, int $page = 1): array
@@ -99,7 +142,7 @@ class TokenHolderService
             'jsonrpc' => '2.0',
             'method' => 'ankr_getTokenHolders',
             'params' => [
-                'blockchain' => $this->getBlockchainName($chainId),
+                'blockchain' => static::getBlockchainName($chainId),
                 'contractAddress' => $tokenAddress,
                 'pageSize' => 10000,
                 'pageNumber' => $page
@@ -115,9 +158,29 @@ class TokenHolderService
     }
 
     /**
+     * Fetch holders from Ankr API
+     */
+    protected function fetchNftHolders(string $tokenAddress, string $chainId, int $page = 1): array
+    {
+        $response = Http::post($this->baseUrl . '/' . $this->apiKey, [
+            'jsonrpc' => '2.0',
+            'method' => 'ankr_getNFTHolders',
+            'params' => [
+                'blockchain' => static::getBlockchainName($chainId),
+                'contractAddress' => $tokenAddress,
+            ],
+            'id' => 1
+        ]);
+        if ($response->failed()) {
+            throw new Exception('Ankr API request failed: ' . $response->body());
+        }
+        return $response->json()['result'] ?? [];
+    }
+
+    /**
      * Convert chainId to blockchain name for Ankr API
      */
-    protected function getBlockchainName(string $chainId): string
+    public static function getBlockchainName(string $chainId): string
     {
         return match ($chainId) {
             '1' => 'eth',
