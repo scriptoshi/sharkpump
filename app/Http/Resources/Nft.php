@@ -19,6 +19,7 @@ class Nft extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'symbol' => $this->symbol,
+            'description' => $this->description,
             'chainId' => (int) $this->chainId,
             'contract' => $this->contract,
             'abi' => $this->abi,
@@ -27,7 +28,7 @@ class Nft extends JsonResource
             'busy' => false,
             'type' => $this->type,
             'image' => $this->image,
-
+            'balance' => $this->pivot?->balance ?? 0,
         ];
     }
 }

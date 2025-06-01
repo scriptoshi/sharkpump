@@ -29,6 +29,7 @@ class ViewUser extends JsonResource
             'holders_count' => $this->holders_count,
             // profile
             'profile_photo_url' => $this->profile_photo_url,
+            'nfts' => Nft::collection($this->whenLoaded('nfts')),
         ];
     }
 }

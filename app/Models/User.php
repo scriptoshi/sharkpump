@@ -191,4 +191,14 @@ class User extends Authenticatable
         }
         return null;
     }
+
+    /**
+     * Get nft level
+     */
+    public function avatar(): ?NftType
+    {
+        $type = $this->nft();
+        if (!$type) return null;
+        return  $this->nfts()->where('type', $type)->first()->image;
+    }
 }

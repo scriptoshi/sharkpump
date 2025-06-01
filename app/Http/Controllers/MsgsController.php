@@ -20,7 +20,7 @@ class MsgsController extends Controller
     public function index(Request $request, Launchpad $launchpad)
     {
         $messages = $launchpad->msgs()
-            ->with('user')
+            ->with('user.nfts')
             ->latest()
             ->paginate(50);
         return MessageResource::collection($messages);

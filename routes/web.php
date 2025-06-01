@@ -74,5 +74,5 @@ Route::name('trades.')->controller(TradesController::class)->group(function () {
 #trades
 
 #nfts
-Route::get('/verification', [NftsController::class, 'kyc'])->name('nfts.kyc');
-Route::post('/nft/{nft:contract}/verify', [NftsController::class, 'verify'])->name('nfts.verify');
+Route::get('/nfts', [NftsController::class, 'index'])->name('nfts.index');
+Route::post('/nft/{nft}/verify', [NftsController::class, 'verify'])->name('nfts.verify');

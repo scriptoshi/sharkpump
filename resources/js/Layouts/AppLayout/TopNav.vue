@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/vue3";
 import { BookOpenText } from "lucide-vue-next";
 import { TelegramIcon, XIcon } from "vue3-simple-icons";
 
-import ApplicationLogo from "@/Components/ApplicationLogo.vue";
+// import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import HowItWorksModal from "@/Layouts/AppLayout/HowItWorksModal.vue";
@@ -47,12 +47,12 @@ const showHowItworks = ref(false);
 						>
 							{{ $t("Leaderboard") }}
 						</Link>
-						<button
-							@click="showHowItworks = !showHowItworks"
+						<Link
+							href="/nfts"
 							class="text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium"
 						>
-							{{ $t("How it works") }}
-						</button>
+							{{ $t("SHARK Airdrop") }}
+						</Link>
 					</div>
 				</div>
 

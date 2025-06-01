@@ -37,6 +37,7 @@ class User extends JsonResource
             'profile_photo_path' => $this->profile_photo_path,
             'profile_photo_url' => $this->profile_photo_url,
             'is_admin' => $this->isAdmin(),
+            'nfts' => Nft::collection($this->whenLoaded('nfts')),
         ];
     }
 }

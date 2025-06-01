@@ -19,6 +19,7 @@ return new class extends Migration
             $table->json('abi')->nullable();
             $table->string('name');
             $table->string('symbol');
+            $table->text('description')->nullable();
             $table->json('metadata')->nullable();
             $table->string('image')->nullable();
             $table->string('type')->default('verification');

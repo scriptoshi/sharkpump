@@ -50,6 +50,7 @@ class Nft extends Model
         'chainId',
         'name',
         'symbol',
+        'description',
         'contract',
         'abi',
         'metadata',

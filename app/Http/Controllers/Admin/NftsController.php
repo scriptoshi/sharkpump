@@ -68,6 +68,7 @@ class NftsController extends Controller
             'chainId' => ['required', 'numeric'],
             'name' => ['required', 'string'],
             'symbol' => ['required', 'string'],
+            'description' => ['nullable', 'string'],
             'contract' => ['required', 'string'],
             'logo_uri' => ['nullable', 'required_if:logo_upload,false', 'string'],
             'logo_upload' => ['required', 'boolean'],
@@ -78,6 +79,7 @@ class NftsController extends Controller
         $nft->chainId = $request->chainId;
         $nft->name = $request->name;
         $nft->symbol = $request->symbol;
+        $nft->description = $request->description;
         $nft->contract = $request->contract;
         $nft->abi = $factory->abi;
         $nft->type = $request->type;
@@ -188,15 +190,17 @@ class NftsController extends Controller
     public function update(Request $request, Nft $nft)
     {
         $request->validate([
-            'logo_uri' => ['nullable', 'required_if:logo_upload,false', 'string'],
+            'description' => ['nullable', 'string'],
+            'logo_uri' => ['nullable', 'string'],
             'logo_upload' => ['required', 'boolean'],
             'logo_path' => ['nullable', 'required_if:logo_upload,true'],
         ]);
+        $nft->description = $request->description;
         if ($request->logo_upload) {
             $upload = app(Uploads::class)->upload($request, $nft, 'logo');
             $nft->image = $upload->url;
-            $nft->save();
         }
+        $nft->save();
         return back()->with('success', 'Nft updated!');
     }
 

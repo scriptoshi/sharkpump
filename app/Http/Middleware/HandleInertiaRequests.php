@@ -43,7 +43,7 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => Auth::check() ? new User($request->user()) : null,
+                'user' => Auth::check() ? new User($request->user()) : null
             ],
             'flash' => value(function () use ($request) {
                 return array_filter([

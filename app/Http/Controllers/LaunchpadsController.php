@@ -367,7 +367,10 @@ class LaunchpadsController extends Controller
                 return Holder::collection($holders);
             },
             'msgs' => function () use ($launchpad) {
-                $msgs = $launchpad->msgs()->with('user')->oldest()->take(50)->get();
+                $msgs = $launchpad->msgs()
+                    ->with('user.nfts')
+                    ->oldest()->take(50)
+                    ->get();
                 return Msg::collection($msgs);
             },
             'pinned' => function () use ($launchpad) {
