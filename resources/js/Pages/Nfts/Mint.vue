@@ -4,9 +4,9 @@
 import { useChainId } from "@wagmi/vue";
 
 import AppLayout from "@/Layouts/AppLayout.vue";
-import NftMint from "./NftMint.vue";
+import NftMint from "@/Pages/Nfts/NftMint.vue";
 
-const props = defineProps({
+defineProps({
     kycNfts: Object,
     planktonNfts: Object,
     fishNfts: Object,

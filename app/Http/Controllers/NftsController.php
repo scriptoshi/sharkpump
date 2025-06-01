@@ -50,7 +50,7 @@ class NftsController extends Controller
             ->where('active', true)
             ->get();
         $user = $request->user();
-        $balances = NftUser::where('user_id', $user->id)->pluck('balance', 'nft_id');
+        $balances = NftUser::where('user_id', $user?->id)->pluck('balance', 'nft_id');
         return Inertia::render('Nfts/Mint', [
             'kycNfts' => ResourcesNft::collection($kycNfts)->keyBy('chainId'),
             'planktonNfts' => ResourcesNft::collection($planktonNfts)->keyBy('chainId'),
