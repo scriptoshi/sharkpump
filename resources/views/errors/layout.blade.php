@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? 'Error' }} | {{ config('app.name') }}</title>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/js/app.js'])
 </head>
 <body class="h-full">
     <div class="min-h-screen bg-gray-50 dark:bg-gray-900 px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
