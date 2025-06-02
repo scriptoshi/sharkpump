@@ -43,7 +43,13 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => Auth::check() ? new User($request->user()) : null
+                'user' => Auth::check() ? new User($request->user()) : null,
+                'nfts' => Auth::check() ? $request->user()
+                    ->nfts()
+                    ->wherePivot('balance', '>', 0)
+                    ->pluck('type')
+                    ->unique()
+                    ->all() : [],
             ],
             'flash' => value(function () use ($request) {
                 return array_filter([

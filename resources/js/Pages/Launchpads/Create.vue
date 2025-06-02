@@ -4,32 +4,25 @@ import { computed, ref } from "vue";
 import { useForm } from "@inertiajs/vue3";
 import { useChainId } from "@wagmi/vue";
 import { ComponentIcon } from "lucide-vue-next";
-import { parseEventLogs } from "viem";
 
-import ChainSymbol from "@/Components/ChainSymbol.vue";
 import CollapseTransition from "@/Components/CollapseTransition.vue";
 import FormInput from "@/Components/FormInput.vue";
 import FormLabel from "@/Components/FormLabel.vue";
 import FormSwitch from "@/Components/FormSwitch.vue";
 import FormTextArea from "@/Components/FormTextArea.vue";
-import Loading from "@/Components/Loading.vue";
 import LogoInput from "@/Components/LogoInput.vue";
 import LogoInputLocal from "@/Components/LogoInputLocal.vue";
 import fakeLogo from "@/Components/no-image-available-icon.jpeg?url";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TxStatus from "@/Components/TxStatus.vue";
-import { useContractFees, useReactiveContractCall } from "@/hooks/useContractCall";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import Web3Auth from "@/Pages/Auth/Web3Auth.vue";
+import SpawnFactory from "@/Pages/Launchpads/SpawnFactory.vue";
 const props = defineProps({
 	factories: Array,
 });
 const chainId = useChainId();
-const factory = computed(() => props.factories[chainId.value]);
-const factoryId = computed(() => factory.value?.id);
+const chainFactories = computed(() => props.factories[chainId.value]);
+
 const form = useForm({
-	chainId,
-	factory_id: factoryId,
 	contract: "",
 	token: "",
 	name: "",
@@ -43,36 +36,8 @@ const form = useForm({
 	logo_path: null,
 	logo_upload: false,
 });
-const save = () =>
-	form.post(window.route("launchpads.store"), {
-		preserveState: true,
-		preserveScroll: true,
-	});
+
 const addLinks = ref(false);
-const abi = computed(() => factory.value.factory_abi);
-const contract = computed(() => factory.value.contract);
-const state = useReactiveContractCall(abi, contract);
-const { fees, feesFormatted } = useContractFees(abi, contract, "getDeploymentFee");
-const deploy = async () => {
-	if (form.logo_upload && !form.logo_path)
-		form.setError("logo_uri", "Logo is required");
-	if (!form.logo_upload && !form.logo_uri)
-		form.setError("logo_uri", "Logo is required");
-	if (!form.name) form.setError("name", "Token name is required");
-	if (!form.symbol) form.setError("symbol", "Token symbol is required");
-	if (!form.symbol) form.setError("symbol", "A description is required");
-	await state.call("deployBondingCurveSystem", [form.name, form.symbol], fees.value);
-	if (state.error) return;
-	const logs = parseEventLogs({
-		abi: abi.value,
-		logs: state.receipt.logs,
-		eventName: ["BondingCurveSystemDeployed"],
-	});
-	console.log(logs);
-	form.contract = logs?.[0]?.args?.bondingCurveAddress;
-	form.token = logs?.[0]?.args?.tokenAddress;
-	save();
-};
 </script>
 <template>
 	<Head :title="`New Spawnpad`" />
@@ -198,29 +163,21 @@ const deploy = async () => {
 							/>
 						</div>
 					</CollapseTransition>
-
-					<div v-if="$page.props.auth.user" class="pt-5">
+					<template v-if="$page.props.auth.user">
 						<div
-							class="flex flex-col sm:flex-row items-center gap-3 justify-end"
+							v-for="factory in chainFactories"
+							:key="factory.id"
+							class="mt-4 p-3 border border-gray-650 bg-gray-750/50"
 						>
-							<TxStatus class="w-full sm:w-[unset]" :state="state" />
-							<PrimaryButton
-								class="w-full sm:w-[unset]"
-								@click="deploy"
-								:disabled="state.busy || form.processing"
-							>
-								<Loading
-									class="mr-2 -ml-1 inline-block w-5 h-5"
-									v-if="state.busy || form.processing"
-								/>
-								<span>
-									{{ $t("Deploy Spawnpad") }}
-									{{ feesFormatted }}
-								</span>
-								<ChainSymbol class="ml-1" :chain-id="chainId" />
-							</PrimaryButton>
+							<SpawnFactory
+								:canDeploy="
+									$page.props.auth.nfts.includes(factory.nft_type)
+								"
+								:factory="factory"
+								:form="form"
+							/>
 						</div>
-					</div>
+					</template>
 					<div v-else class="pt-5">
 						<div
 							class="flex flex-col sm:flex-row items-center gap-3 justify-end"

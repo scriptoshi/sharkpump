@@ -18,6 +18,7 @@ class Factory extends JsonResource
         return [
             'id' => $this->id,
             'version' => $this->version,
+            'nft_type' => $this->nft_type,
             'chainId' => $this->chainId,
             'foundry' => $this->foundry,
             'contract' => $this->contract,

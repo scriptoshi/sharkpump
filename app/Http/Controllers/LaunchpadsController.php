@@ -10,9 +10,11 @@ use App\Http\Resources\Factory as ResourcesFactory;
 use App\Http\Resources\Holder;
 use App\Http\Resources\Launchpad as LaunchpadResource;
 use App\Http\Resources\Msg;
+use App\Http\Resources\Nft as ResourcesNft;
 use App\Http\Resources\Trade;
 use App\Models\Factory;
 use App\Models\Launchpad;
+use App\Models\Nft;
 use App\Models\Poolstat;
 use App\Models\Promo;
 use App\Models\Rate;
@@ -266,9 +268,20 @@ class LaunchpadsController extends Controller
      */
     public function create()
     {
-        $factories = Factory::latestByChain()->get();
+        $factories = Factory::all();
         return Inertia::render('Launchpads/Create', [
-            'factories' => ResourcesFactory::collection($factories)->keyBy('chainId')
+            'factories' => ResourcesFactory::collection($factories)->groupBy('chainId')
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     * @return \Illuminate\View\View
+     */
+    public function spawn(Factory $factory)
+    {
+        return Inertia::render('Launchpads/Spawn', [
+            'factory' => ResourcesFactory::make($factory)
         ]);
     }
 
@@ -286,7 +299,6 @@ class LaunchpadsController extends Controller
             'name' => ['string', 'required'],
             'symbol' => ['string', 'required'],
             'description' => ['string', 'required'],
-            'chainId' => ['numeric', 'required'],
             'twitter' => ['string', 'nullable'],
             'discord' => ['string', 'nullable'],
             'telegram' => ['string', 'nullable'],
@@ -295,7 +307,7 @@ class LaunchpadsController extends Controller
             'logo_upload' => ['required', 'boolean'],
             'logo_path' => ['nullable', 'required_if:logo_upload,true'],
         ]);
-
+        $factory = Factory::find($request->factory_id);
         $launchpad = new Launchpad;
         $launchpad->user_id = $request->user()->id;
         $launchpad->factory_id = $request->factory_id;
@@ -304,12 +316,12 @@ class LaunchpadsController extends Controller
         $launchpad->name = $request->name;
         $launchpad->symbol = $request->symbol;
         $launchpad->description = $request->description;
-        $launchpad->chainId = $request->chainId;
+        $launchpad->chainId = $factory->chainId;
         $launchpad->twitter = $request->twitter;
         $launchpad->discord = $request->discord;
         $launchpad->telegram = $request->telegram;
         $launchpad->website = $request->website;
-        $launchpad->nft_type = $request->user()->nft();
+        $launchpad->nft_type = $factory->nft_type ?? $request->user()->nft();
         $launchpad->status = LaunchpadStatus::PREBOND;
         $launchpad->save();
         $upload = app(Uploads::class)->upload($request,  $launchpad, 'logo');
@@ -380,7 +392,11 @@ class LaunchpadsController extends Controller
             'top' => function () {
                 return $this->getTopLaunchpads();
             },
-            'report' => $this->getTradeReport($launchpad->id)
+            'report' => $this->getTradeReport($launchpad->id),
+            'nft' => function () use ($launchpad) {
+                $nft = Nft::query()->where('type', $launchpad->nft_type)->first();
+                return new ResourcesNft($nft);
+            }
         ]);
     }
 

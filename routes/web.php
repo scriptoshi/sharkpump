@@ -40,6 +40,7 @@ require __DIR__ . '/web3.php';
 Route::name('launchpads.')->controller(LaunchpadsController::class)->group(function () {
     Route::get('/{type?}', 'index')->whereIn('type', ['trending', 'top', 'featured', 'rising', 'new', 'finalized', 'mine'])->name('index');
     Route::get('/launch', 'create')->name('create');
+    Route::get('/spawn/{factory:contract}', 'spawn')->name('spawn');
     Route::post('/launchpads/store', 'store')->name('store');
     Route::post('/launchpads/status/{launchpad}', 'updateStatus')->name('update.status');
     Route::post('/launchpads/livestream/{launchpad}', 'updateLiveStream')->name('update.livestream');

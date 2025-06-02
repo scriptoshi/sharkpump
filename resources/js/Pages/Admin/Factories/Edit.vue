@@ -12,6 +12,7 @@ import FormInput from "@/Components/FormInput.vue";
 import FormSwitch from "@/Components/FormSwitch.vue";
 import Loading from "@/Components/Loading.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import RadioSelect from "@/Components/RadioSelect.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import TxStatus from "@/Components/TxStatus.vue";
 import VueIcon from "@/Components/VueIcon.vue";
@@ -29,7 +30,8 @@ const props = defineProps({
 const chainId = useChainId();
 const { address, chain } = useAccount();
 const nameForm = useForm({
-	name: "My Factory",
+	name: props.factory.version,
+	nft_type: props.factory.nft_type,
 });
 const save = () =>
 	nameForm.put(
@@ -178,7 +180,7 @@ const updateSettings = async () => {
 									<p>Available fees</p>
 									<h3>
 										{{ balance?.formatted }}
-										{{ chain.nativeCurrency.symbol }}
+										{{ chain?.nativeCurrency?.symbol }}
 									</h3>
 								</div>
 								<PrimaryButton @click="withdrawFees">
@@ -205,7 +207,7 @@ const updateSettings = async () => {
 									class="sm:col-span-2 lg:col-span-4 grid md:grid-cols-2 lg:grid-cols-4 gap-3 p-6 border border-gray-750"
 								>
 									<h3 class="sm:col-span-2 lg:col-span-4">
-										Update Contract Label
+										Factory Information.
 									</h3>
 									<FormInput
 										label="Factory Name. (A simple label for your private use)"
@@ -215,38 +217,54 @@ const updateSettings = async () => {
 										help="This name is meant for local use"
 										:error="nameForm.errors.name"
 									/>
-									<SecondaryButton
-										class="self-center"
-										size="sm"
-										:outlined="nameForm.recentlySuccessful"
-										:class="{
-											'!text-emerald-500':
-												nameForm.recentlySuccessful,
-										}"
-										:disabled="nameForm.processing"
-										@click="save"
-									>
-										<VueIcon
-											v-if="nameForm.recentlySuccessful"
-											:icon="HiCheckCircle"
-											class="w-4 h-4 -ml-1 mr-2 inline-block"
-										/>
-										<Loading
-											class="!w-4 !h-4 -ml-1 mr-2"
-											v-else-if="nameForm.processing"
-										/>
-										<VueIcon
-											:icon="HiCog"
-											v-else
-											class="w-4 h-4 -ml-1 mr-2 inline-block"
-										/>
 
-										{{
-											nameForm.recentlySuccessful
-												? "Saved Successfully"
-												: $t("Update Factory Label ")
-										}}
-									</SecondaryButton>
+									<label
+										class="sm:col-span-2 lg:col-span-4 block mb-3 text-sm font-medium text-gray-900 dark:text-white"
+										for="type"
+									>
+										Minimum NFT Badge (required to deploy);
+									</label>
+									<div class="lg:col-span-4 p-6 rounded-lg bg-gray-750">
+										<RadioSelect
+											v-model="nameForm.nft_type"
+											:options="$page.props.types"
+											:grid="4"
+										/>
+									</div>
+									<div class="lg:col-span-4 flex justify-end">
+										<SecondaryButton
+											class="self-center"
+											size="sm"
+											:outlined="nameForm.recentlySuccessful"
+											:class="{
+												'!text-emerald-500':
+													nameForm.recentlySuccessful,
+											}"
+											:disabled="nameForm.processing"
+											@click="save"
+										>
+											<VueIcon
+												v-if="nameForm.recentlySuccessful"
+												:icon="HiCheckCircle"
+												class="w-4 h-4 -ml-1 mr-2 inline-block"
+											/>
+											<Loading
+												class="!w-4 !h-4 -ml-1 mr-2"
+												v-else-if="nameForm.processing"
+											/>
+											<VueIcon
+												:icon="HiCog"
+												v-else
+												class="w-4 h-4 -ml-1 mr-2 inline-block"
+											/>
+
+											{{
+												nameForm.recentlySuccessful
+													? "Saved Successfully"
+													: $t("Update Factory Label ")
+											}}
+										</SecondaryButton>
+									</div>
 								</div>
 								<div
 									class="sm:col-span-2 lg:col-span-4 grid md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 border border-gray-750"
@@ -259,7 +277,7 @@ const updateSettings = async () => {
 										:error="feesForm.errors.newFees"
 									>
 										<template #trail>
-											{{ chain.nativeCurrency.symbol }}
+											{{ chain?.nativeCurrency?.symbol }}
 										</template>
 									</FormInput>
 									<div
@@ -302,7 +320,7 @@ const updateSettings = async () => {
 										type="text"
 									>
 										<template #trail>
-											{{ chain.nativeCurrency.symbol }}
+											{{ chain?.nativeCurrency?.symbol }}
 										</template>
 									</FormInput>
 									<FormInput
@@ -313,7 +331,7 @@ const updateSettings = async () => {
 										type="text"
 									>
 										<template #trail>
-											{{ chain.nativeCurrency.symbol }}
+											{{ chain?.nativeCurrency?.symbol }}
 										</template>
 									</FormInput>
 									<FormInput
@@ -323,7 +341,7 @@ const updateSettings = async () => {
 										type="text"
 									>
 										<template #trail>
-											{{ chain.nativeCurrency.symbol }}
+											{{ chain?.nativeCurrency?.symbol }}
 										</template>
 									</FormInput>
 									<FormInput
@@ -333,7 +351,7 @@ const updateSettings = async () => {
 										type="text"
 									>
 										<template #trail>
-											{{ chain.nativeCurrency.symbol }}
+											{{ chain?.nativeCurrency?.symbol }}
 										</template>
 									</FormInput>
 									<FormInput

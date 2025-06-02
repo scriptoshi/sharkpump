@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
+use App\Enums\NftType;
 
 class Factory extends Model
 {
@@ -38,7 +38,8 @@ class Factory extends Model
             'lock_abi' => 'array',
             'factory_abi' => 'array',
             'abi' => 'array',
-            'active' => 'boolean'
+            'active' => 'boolean',
+            'nft_type' => NftType::class,
         ];
     }
 
@@ -56,7 +57,8 @@ class Factory extends Model
         'lock_abi',
         'factory_abi',
         'abi',
-        'active'
+        'active',
+        'nft_type'
     ];
 
 

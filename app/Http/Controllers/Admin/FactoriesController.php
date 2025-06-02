@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\NftType;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Factory as FactoryResource;
 use App\Models\Factory;
@@ -9,6 +10,7 @@ use Inertia\Inertia;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rules\Enum;
 
 class FactoriesController extends Controller
 {
@@ -41,7 +43,13 @@ class FactoriesController extends Controller
             'foundry' => $foundry,
             'config' => collect(config('evm'))->reject(function ($evm) {
                 return !is_array($evm) || !isset($evm['chainId']) || !isset($evm['symbol']);
-            })->keyBy('chainId')
+            })->keyBy('chainId'),
+            'types' => collect(NftType::cases())->map(function ($type) {
+                return [
+                    'value' => $type->value,
+                    'label' => $type->label(),
+                ];
+            })->all(),
         ]);
     }
 
@@ -58,6 +66,7 @@ class FactoriesController extends Controller
             'foundry' => ['required', 'string', 'max:44'],
             'contract' => ['required', 'string', 'max:44'],
             'lock' => ['required', 'string', 'max:44'],
+            'nft_type' => ['required', new Enum(NftType::class)],
         ]);
         $lockImplementation = json_decode(File::get(base_path('evm/Lock.json')));
         $factoryImplementation = json_decode(File::get(base_path('evm/Factory.json')));
@@ -72,6 +81,7 @@ class FactoriesController extends Controller
         $factory->factory_abi = $factoryImplementation->abi;
         $factory->abi = $curveImplementation->abi;
         $factory->active = true;
+        $factory->nft_type = $request->nft_type ?? NftType::PLANKTON;
         $factory->save();
         return redirect()->route('admin.factories.index')->with('success', 'Factory added!');
     }
@@ -98,7 +108,13 @@ class FactoriesController extends Controller
     {
         $factory->loadCount(['launchpads']);
         return Inertia::render('Admin/Factories/Edit', [
-            'factory' => new FactoryResource($factory)
+            'factory' => new FactoryResource($factory),
+            'types' => collect(NftType::cases())->map(function ($type) {
+                return [
+                    'value' => $type->value,
+                    'label' => $type->label(),
+                ];
+            })->all(),
         ]);
     }
 
@@ -114,8 +130,10 @@ class FactoriesController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string'],
+            'nft_type' => ['nullable', new Enum(NftType::class)],
         ]);
         $factory->version = $request->name;
+        $factory->nft_type = $request->nft_type ?? $factory->nft_type ?? NftType::PLANKTON;
         $factory->save();
         return back();
     }

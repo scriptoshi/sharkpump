@@ -201,4 +201,9 @@ class User extends Authenticatable
         if (!$type) return null;
         return  $this->nfts()->where('type', $type)->first()->image;
     }
+
+    
+    
+
+  
 }
