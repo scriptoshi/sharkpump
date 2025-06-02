@@ -229,6 +229,7 @@ class LaunchpadsController extends Controller
                 ->get(),
             'initialTrades' => fn() => ModelsTrade::query()
                 ->with('launchpad')
+                ->has('launchpad')
                 ->when($type == 'mine', fn($q) => $q->whereRaw('LOWER(address) = ?', [strtolower($request->user()?->address) ?? NULL]))
                 ->latest()
                 ->take(3)
