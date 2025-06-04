@@ -163,10 +163,12 @@ import VueIcon from "@/Components/VueIcon.vue";
                         </h3>
                         <!-- Social Links -->
                         <!-- Telegram Bot Button -->
-                        <PrimaryButton class="w-full justify-center">
-                            <VueIcon :icon="CoBolt" />
-                            {{ $t("Status Page") }}
-                        </PrimaryButton>
+                        <Link href="/status">
+                            <PrimaryButton class="w-full justify-center">
+                                <VueIcon :icon="CoBolt" />
+                                {{ $t("Status Page") }}
+                            </PrimaryButton>
+                        </Link>
                     </div>
                 </div>
             </div>
